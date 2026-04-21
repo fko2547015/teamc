@@ -2,5 +2,7 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <jsp:include page="header.jsp" />
 <jsp:include page="side.jsp" />
-<jsp:include page="${content}" />
+
+
+
 <jsp:include page="footer.html" />
