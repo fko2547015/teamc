@@ -3,10 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>得点管理システム</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-
-</body>
-</html>
+	<h1>得点管理システム</h1>
+	<%--ログイン後のみ表示--%>
+	<span><%-- ログインユーザー名+様 --%></span>
+	<a herf="<%--ログアウト画面のリンク--%>">ログアウト</a>
