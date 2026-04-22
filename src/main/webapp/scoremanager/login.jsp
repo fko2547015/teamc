@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="../header.jsp" %>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
+<jsp:include page="../header.jsp" />
+<jsp:include page="../side.jsp" />
 
 <h2>ログイン</h2>
 
-<form action="    login     " method="post">
+<form action="login" method="post">
 <input type="text" name="id" placeholder="ID"><br>
 <label>
 <input type="text" name="password" placeholder="パスワード"><br>
@@ -18,6 +19,4 @@
 </form>
 
 
-
-
-<%@include file="../footer.html" %>
+<jsp:include page="../footer.html" />

@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="../../header.jsp" %>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
+<jsp:include page="../../header.jsp" />
+<jsp:include page="../../side.jsp" />
 
 <h2>ログアウト</h2>
 
-
+<label>
 <p>ログアウトしました</p>
+</label>
 
-<!--ログインリンク-->
+<a href="../login.jsp">ログインページへ</a>
 
 
-
-<%@include file="../../footer.html" %>
+<jsp:include page="../../footer.html" />
