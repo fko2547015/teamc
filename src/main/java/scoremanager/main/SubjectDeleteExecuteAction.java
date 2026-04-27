@@ -1,5 +1,13 @@
 package scoremanager.main;
 
-public class SubjectDeleteExecuteAction {
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
+import tool.Action;
+
+public class SubjectDeleteExecuteAction extends Action {
+	@Override
+	public void execute(HttpServletRequest reqest, HttpServletResponse response) throws Exception{
+		
+	}
 }

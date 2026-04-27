@@ -1,5 +1,13 @@
 package scoremanager.main;
 
-public class TestListStudentExecuteAction {
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
+import tool.Action;
+
+public class TestListStudentExecuteAction extends Action {
+	@Override
+	public void execute(HttpServletRequest reqest, HttpServletResponse response) throws Exception{
+		
+	}
 }
