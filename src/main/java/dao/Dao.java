@@ -2,14 +2,12 @@ package dao;
 
 import java.sql.Connection;
 
-import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class Dao {
+	static DataSource ds;
 	
-	protected Connection getConnection() throws Exception{
-		InitialContext ic=new InitialContext();
-		DataSource ds = (DataSource) ic.lookup("java:comp/env/jdbc/student");
+	public Connection getConnection() throws Exception{
 		return ds.getConnection();
 	}
 
