@@ -7,12 +7,13 @@
 	<nav>
 		<div>
 			<a href="<%= request.getContextPath() %>/StudentList.action">学生管理</a>
+			<%-- <a href="${pageContext.request.contextPath}/scoremanager/main/student_list.jsp">学生管理</a> --%>
 		</div>
 	
 		<div>
 			<label>成績管理</label>
-				<a href="<%-- 成績管理一覧画面へ --%>">成績登録</a>
-				<a href="<%-- 成績参照検索画面へ --%>">成績参照</a>
+				<a href="${pageContext.request.contextPath}/scoremanager/main/test_regist.jsp">成績登録</a>
+				<a href="${pageContext.request.contextPath}/scoremanager/main/test_list.jsp">成績参照</a>
 		</div>
 	
 		<div>	

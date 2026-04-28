@@ -4,7 +4,8 @@
 <jsp:include page="/side.jsp" />
 
 <h2>学生管理</h2>
-<a href="<%--学生登録画面へ--%>">新規登録</a>
+<%-- <a href="#">新規登録</a> --%>
+<a href="${pageContext.request.contextPath}/scoremanager/main/student_create.jsp">新規登録</a>
 <form>
 	<label for="year">入学年度</label>
 		<select id="year" name="f1">
@@ -53,7 +54,7 @@
 							</c:otherwise>
 						</c:choose>
 					</td>
-					<td><a href="<%-- 学生変更画面に遷移 --%>">変更</a></td>
+					<td><a href="${pageContext.request.contextPath}/scoremanager/main/student_update.js">変更</a></td>
 				</tr>
 			</c:forEach>
 		</table>
