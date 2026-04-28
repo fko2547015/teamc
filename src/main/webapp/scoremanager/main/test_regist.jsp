@@ -46,7 +46,7 @@
 		<th>氏名</th>
 		<th>点数</th>
 	</tr>
-	<c:forEach var="test" items="%{tests }">
+	<c:forEach var="test" items="${tests }">
 		<tr>
 			<td>${test.entYear }</td>
 			<td>${test.classNum }</td>

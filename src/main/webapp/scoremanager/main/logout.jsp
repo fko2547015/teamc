@@ -10,7 +10,7 @@
 <p>ログアウトしました</p>
 </label>
 
-<a href="../login.jsp">ログインページへ</a>
+<a href="../login.jsp">ログイン</a>
 
 
 <jsp:include page="../../footer.html" />

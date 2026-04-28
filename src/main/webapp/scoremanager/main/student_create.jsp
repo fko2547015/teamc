@@ -5,18 +5,28 @@
 
 <h2>学生情報登録</h2>
 
-<form action="student.create" method="post">
+<form action="<%-- どこに送ろうかまだ未定 --%>" method="post">
 
 	<label>入学年度<br>
-		<select name="ent_year">
-	        <option value="">選択してください</option>
-	    </select>
+	  <input type="text"
+	         name="ent_year"
+	         placeholder="--------"
+	         maxlength="4"
+	         pattern="\d{4}"
+	         inputmode="numeric"
+	         required>
 	</label>
 	<br>
 	
 	
 	<label>学生番号<br>
-		<input type="text" name="no" placeholder="学生番号を入力してください">
+		<input type="text" 
+			name="no" 
+			placeholder="学生番号を入力してください"
+			maxlength="6"
+			pattern="\d{6}"
+	        inputmode="numeric"
+	        required>
 	</label>
 	<br>
 	
