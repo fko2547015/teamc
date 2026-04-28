@@ -6,7 +6,7 @@
 
 <h2>ログイン</h2>
 
-<form action="<%-- ログイン登録完了画面に遷移＋javaのほうで処理 --%>" method="post">
+<form action="LoginAction" method="post">
 <input type="text" name="id" placeholder="ID" required><br>
 <label>
   <input type="password" id="password" name="password" placeholder="パスワード" required><br>
