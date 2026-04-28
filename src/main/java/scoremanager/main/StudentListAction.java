@@ -92,6 +92,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+import bean.School;
 import bean.Student;
 import bean.Teacher;
 import dao.ClassNumDao;
@@ -105,6 +106,14 @@ public class StudentListAction extends Action {
 
         HttpSession session = request.getSession();
         Teacher teacher = (Teacher) session.getAttribute("user");
+        if (teacher == null) {
+            teacher = new Teacher();
+
+            School school = new School();
+            school.setCd("tes");   // ← DB にある SCHOOL_CD をセット
+
+            teacher.setSchool(school);
+        }
 
         // パラメータ取得
         String entYearStr = request.getParameter("f1");
