@@ -6,7 +6,7 @@
 	<h2>メニュー</h2>
 	<nav>
 		<div>
-			<a href="<%-- 学生管理一覧画面へ --%>">学生管理</a>
+			<a href="<%= request.getContextPath() %>/StudentList.action">学生管理</a>
 		</div>
 	
 		<div>

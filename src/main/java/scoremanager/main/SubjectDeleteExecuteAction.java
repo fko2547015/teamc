@@ -7,7 +7,7 @@ import tool.Action;
 
 public class SubjectDeleteExecuteAction extends Action {
 	@Override
-	public void execute(HttpServletRequest reqest, HttpServletResponse response) throws Exception{
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		
 	}
 }
