@@ -10,10 +10,13 @@
 }
 
 #footer_nav{
-	background-color: rgb(192, 192, 192);
+	background-color: rgb(192, 192, 192)
+	
 }
 
 .footer_p{
 	color: grey;
-	text-align: ;
+	margin: auto;
+	width: 70%;
+	text-align: center;
 }
