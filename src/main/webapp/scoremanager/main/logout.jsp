@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
+<jsp:include page="../../header.jsp" />
+<jsp:include page="../../side.jsp" />
 
-</body>
-</html>
+<h2>ログアウト</h2>
+
+<label>
+<p>ログアウトしました</p>
+</label>
+
+<a href="../login.jsp">ログイン</a>
+
+
+<jsp:include page="../../footer.html" />
