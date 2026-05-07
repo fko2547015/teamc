@@ -27,7 +27,7 @@ public class SubjectDao extends Dao {
 			}
 		} finally {
 			if(statement != null)statement.close();
-			if(connection != null)statement.close();
+			if(connection != null)connection.close();
 		}
 		return subject;
 	}
@@ -38,7 +38,7 @@ public class SubjectDao extends Dao {
 		Connection connection = getConnection();
 		PreparedStatement statement = null;
 		try {
-			statement = connection.prepareStatement("select * from subject order by subjec_cd");
+			statement = connection.prepareStatement("select * from subject order by subject_cd");
 			ResultSet rSet = statement.executeQuery();
 			while (rSet.next()) {
 				Subject subject = new Subject();
@@ -88,7 +88,7 @@ public class SubjectDao extends Dao {
 		int count = 0;
 		try {
 			statement = connection.prepareStatement("delete from subject where subject_cd=?");
-			statement.setString(1, subjectCd);
+			statement.setString(1, subject.getCd());
 			count = statement.executeUpdate();
 		}finally {
 			if (statement != null) statement.close();
