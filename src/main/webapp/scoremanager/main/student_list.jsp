@@ -46,7 +46,7 @@
 					<td>${student.classNum }</td>
 					<td>
 						<c:choose>
-							<c:when test="${student.isAttend() }">
+							<c:when test="${student.attend }">
 								〇
 							</c:when>
 							<c:otherwise>
@@ -54,7 +54,7 @@
 							</c:otherwise>
 						</c:choose>
 					</td>
-					<td><a href="${pageContext.request.contextPath}/scoremanager/main/student_update.js">変更</a></td>
+					<td><a href="${pageContext.request.contextPath}/scoremanager/main/student_update.jsp">変更</a></td>
 				</tr>
 			</c:forEach>
 		</table>
