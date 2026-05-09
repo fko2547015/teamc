@@ -15,7 +15,7 @@
 </form>
 
 
-<a href="SubjectList.action">戻る</a>
+<a href="${pageContext.request.contextPath}/scoremanager/main/subject_list.jsp">戻る</a>
 
 
 <jsp:include page="/footer.html" />

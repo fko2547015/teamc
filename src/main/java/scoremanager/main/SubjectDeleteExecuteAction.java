@@ -11,15 +11,15 @@ public class SubjectDeleteExecuteAction extends Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		
-		String subjectCd = request.getParameter("subject_cd");
+		//科目コード所得
+		String Cd = request.getParameter("cd");
 		
-		Subject subject = new Subject();
-		
-		subject.setCd(subjectCd);
-		
+		//DAOから科目情報所得
 		SubjectDao dao= new SubjectDao();
+		Subject subjet = dao.get(Cd);
 		
-		dao.delete(subject);
+		request.setAttribute("subject_cd", subjet.getCd());
+		request.setAttribute("subject_name", subjet.getName());
 		
 		request.getRequestDispatcher("subject_delete_done.jsp").forward(request, response);
 	}
