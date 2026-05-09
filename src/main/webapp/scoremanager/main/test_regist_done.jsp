@@ -7,7 +7,7 @@
 
 <p>登録が完了しました</p>
 
-<a href="<%--成績管理一覧画面へ--%>">戻る</a>
-<a href="<%--成績参照検索画面へ--%>">成績参照</a>
+<a href="${pageContext.request.contextPath}/scoremanager/main/test_regist.jsp">戻る</a>
+<a href="${pageContext.request.contextPath}/scoremanager/main/test_list.jsp">成績参照</a>
 
 <jsp:include page="/footer.html" />

@@ -7,8 +7,8 @@
 
 <p>登録が完了しました</p>
 
-<a href="<%--科目登録画面へ--%>>">戻る</a>
-<a href="<%--科目管理一覧画面へ--%>">科目一覧</a>
+<a href="${pageContext.request.contextPath}/scoremanager/main/subject_create.jsp">戻る</a>
+<a href="${pageContext.request.contextPath}/scoremanager/main/subject_list.jsp">科目一覧</a>
 
 
 <jsp:include page="/footer.html" />
