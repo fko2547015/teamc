@@ -24,6 +24,7 @@ public class LoginExecuteAction extends Action {
 
 		// ログイン成功
 		request.getSession().setAttribute("teacher", teacher);
-		request.getRequestDispatcher("/Menu.action").forward(request, response);
+		response.sendRedirect("Menu.action");
+
 	}
 }
