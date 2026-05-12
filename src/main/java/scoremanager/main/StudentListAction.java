@@ -78,7 +78,7 @@
 
 
 
-
+// ログインしてなくても〇
 
 package scoremanager.main;
 

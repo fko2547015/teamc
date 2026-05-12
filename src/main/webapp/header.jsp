@@ -11,4 +11,4 @@
 	<h1 id="header_h1">得点管理システム</h1>
 	<%--ログイン後のみ表示--%>
 	<span><%-- ログインユーザー名 --%>様</span>
-	<a href="logout.jsp">ログアウト</a>
+	<a href="main/logout.jsp">ログアウト</a>

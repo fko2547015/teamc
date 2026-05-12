@@ -5,8 +5,11 @@
 <jsp:include page="../side.jsp" />
 
 <h2>ログイン</h2>
+<c:if test="${not empty error}">
+    <p>${error}</p>
+</c:if>
 
-<form action="LoginAction" method="post">
+<form action="<%= request.getContextPath() %>/LoginExecute.action" method="post">
 <input type="text" name="id" placeholder="ID" required><br>
 <label>
   <input type="password" id="password" name="password" placeholder="パスワード" required><br>

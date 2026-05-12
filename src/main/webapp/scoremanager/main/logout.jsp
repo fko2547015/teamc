@@ -10,7 +10,7 @@
 <p>ログアウトしました</p>
 </label>
 
-<a href="../login.jsp">ログイン</a>
+<a href="<%= request.getContextPath() %>/Login.action">ログイン</a>
 
 
 <jsp:include page="../../footer.html" />
