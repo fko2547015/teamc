@@ -31,7 +31,7 @@
 </form>
 <form>
 	<label><p>学生情報</p></label>
-	<label><input type="text" name="f4" value="${f4 }"></label>
+	<label>学生参照<input type="text" name="f4" value="${f4 }"></label>
 	<button>検索</button><%-- 自画面に遷移、科目の検索条件を削除して一覧表示 --%>
 </form>
 <label><p>科目情報を選択または学生情報を入力して検索ボタンをクリックしてください</p></label>

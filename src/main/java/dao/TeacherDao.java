@@ -10,7 +10,6 @@ import bean.Teacher;
 
 
 public class TeacherDao extends Dao {
-//	private String baseSql = "select * from teacher where school_cd=? ";
 	public Teacher get(String id) throws Exception {
 		Teacher teacher =new Teacher();
 		Connection connection = getConnection();
