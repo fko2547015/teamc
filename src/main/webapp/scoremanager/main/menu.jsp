@@ -12,8 +12,8 @@
 	
 		<div>
 			<label>成績管理</label>
-				<a href="${pageContext.request.contextPath}/scoremanager/main/test_regist.jsp">成績登録</a>
-				<a href="${pageContext.request.contextPath}/scoremanager/main/test_list.jsp">成績参照</a>
+				<a href="TestRegist.action">成績登録</a>
+				<a href="TestList.action">成績参照</a>
 		</div>
 	
 		<div>	
