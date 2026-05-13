@@ -14,14 +14,17 @@
 				<option value="${year }" <c:if test="${year==f1 }">selected</c:if>>${year }</option>
 			</c:forEach>
 		</select>
-		<c:if test="${not empty error }">
-			<p>${error }</p>
+		<c:if test="${not empty error_year }">
+			<p>${error_year }</p>
 		</c:if>
 	<br>
 
 	<label for="no">学生番号</label>
 		<input type="text" id="no" name="no" value="${no }"
 			placeholder="学生番号を入力してください" maxlength="10" inputmode="numeric" required>
+		<c:if test="${not empty error_no }">
+			<p>${error_no }</p>
+		</c:if>
 	<br>
 	
 	<label>氏名</label>

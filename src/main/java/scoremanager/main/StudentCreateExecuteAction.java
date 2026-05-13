@@ -58,7 +58,29 @@ public class StudentCreateExecuteAction extends Action {
 			request.setAttribute("class_num_set", list);
 			request.setAttribute("ent_year_set", entYearSet);
 
-			request.setAttribute("error", "入学年度を選択してください");
+			request.setAttribute("error_year", "入学年度を選択してください");
+			request.getRequestDispatcher("/scoremanager/main/student_create.jsp").forward(request, response);
+			return;
+		}
+		if (sDao.get(no) != null ) {
+			request.setAttribute("no", no);
+		    request.setAttribute("name", name);
+		    request.setAttribute("class_num", classNum);
+		    request.setAttribute("ent_year", entYearStr);
+		    
+		    LocalDate todaysDate = LocalDate.now();
+			int year = todaysDate.getYear();
+			ClassNumDao cNumDao = new ClassNumDao();
+			List<Integer> entYearSet = new ArrayList<>();
+			for (int i = year-10; i < year+10; i++) {
+				entYearSet.add(i);
+			}
+			List<String> list = cNumDao.filter(teacher.getSchool());
+		
+			request.setAttribute("class_num_set", list);
+			request.setAttribute("ent_year_set", entYearSet);
+
+			request.setAttribute("error_no", "この学生番号は既に登録されています");
 			request.getRequestDispatcher("/scoremanager/main/student_create.jsp").forward(request, response);
 			return;
 		}
