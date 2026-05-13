@@ -56,7 +56,13 @@ public class FrontController extends HttpServlet {
             String base = path.replace(".action", "");
 
             // パッケージ名 + クラス名
-            String className = "scoremanager.main." + base + "Action";
+            String className;
+            if (base.equals("Login") || base.equals("LoginExecute")) {
+            	className = "scoremanager." + base + "Action";
+            } else {
+            	className = "scoremanager.main." + base + "Action";
+            }
+
 
             System.out.println("★ servlet path -> " + request.getServletPath());
             System.out.println("★ class name -> " + className);
