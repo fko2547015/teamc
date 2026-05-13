@@ -4,8 +4,7 @@
 <jsp:include page="/side.jsp" />
 
 <h2>学生管理</h2>
-<%-- <a href="#">新規登録</a> --%>
-<a href="${pageContext.request.contextPath}/scoremanager/main/student_create.jsp">新規登録</a>
+<a href="<%= request.getContextPath() %>/StudentCreate.action">新規登録</a>
 <form>
 	<label for="year">入学年度</label>
 		<select id="year" name="f1">

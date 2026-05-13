@@ -4,7 +4,7 @@
 	<div>
 		<nav>
 			<ul>
-				<li><a href="${pageContext.request.contextPath}/scoremanager/main/menu.jsp">メニュー</a></li>
+				<li><a href="<%= request.getContextPath() %>/Menu.action">メニュー</a></li>
 				<li><a href="<%= request.getContextPath() %>/StudentList.action">学生管理</a></li>
 				<li><label>成績管理</label></li>
 					<li><a href="${pageContext.request.contextPath}/scoremanager/main/test_regist.jsp">成績登録</a></li>
