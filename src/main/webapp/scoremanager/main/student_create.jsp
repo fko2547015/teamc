@@ -9,11 +9,14 @@
 
 	<label for="year">入学年度</label>
 		<select id="year" name="ent_year">
-			<option value="0">--------</option>
+			<option value="">--------</option>
 			<c:forEach var="year"  items="${ent_year_set }"><%-- ent_year_setというリストをjavaでつくる --%>
 				<option value="${year }" <c:if test="${year==f1 }">selected</c:if>>${year }</option>
 			</c:forEach>
 		</select>
+		<c:if test="${not empty error }">
+			<p>${error }</p>
+		</c:if>
 	<br>
 
 	<label for="no">学生番号</label>
@@ -22,7 +25,7 @@
 	<br>
 	
 	<label>氏名</label>
-		<input type="text" name="name" value="${name }" placeholder="氏名を入力してください">
+		<input type="text" name="name" value="${name }" placeholder="氏名を入力してください" required>
 	<br>
 	
 	<label for="class">クラス</label>
@@ -37,7 +40,7 @@
 	<button name="end">登録して終了</button>
 </form>
 
-<a href="<%= request.getContextPath() %>/Menu.action">戻る</a>
+<a href="<%= request.getContextPath() %>/StudentList.action">戻る</a>
 
 
 

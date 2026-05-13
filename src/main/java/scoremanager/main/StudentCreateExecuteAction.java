@@ -1,11 +1,16 @@
 package scoremanager.main;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import bean.Student;
 import bean.Teacher;
+import dao.ClassNumDao;
 import dao.StudentDao;
 import tool.Action;
 
@@ -32,8 +37,30 @@ public class StudentCreateExecuteAction extends Action {
 		name = request.getParameter("name");
 		classNum = request.getParameter("class_num");
 		
-		if (entYearStr != null) {
+		if (entYearStr != null && !entYearStr.equals("")) {
 			entYear = Integer.parseInt(entYearStr);
+		}
+		if (entYearStr == null || entYearStr.equals("")) {
+			request.setAttribute("no", no);
+		    request.setAttribute("name", name);
+		    request.setAttribute("class_num", classNum);
+		    request.setAttribute("ent_year", entYearStr);
+		    
+		    LocalDate todaysDate = LocalDate.now();
+			int year = todaysDate.getYear();
+			ClassNumDao cNumDao = new ClassNumDao();
+			List<Integer> entYearSet = new ArrayList<>();
+			for (int i = year-10; i < year+10; i++) {
+				entYearSet.add(i);
+			}
+			List<String> list = cNumDao.filter(teacher.getSchool());
+		
+			request.setAttribute("class_num_set", list);
+			request.setAttribute("ent_year_set", entYearSet);
+
+			request.setAttribute("error", "入学年度を選択してください");
+			request.getRequestDispatcher("/scoremanager/main/student_create.jsp").forward(request, response);
+			return;
 		}
 		Student student = new Student();
 		student.setNo(no);
