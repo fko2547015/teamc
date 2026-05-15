@@ -27,8 +27,8 @@
 		</c:if>
 	<br>
 	
-	<label>氏名</label>
-		<input type="text" name="name" value="${name }" placeholder="氏名を入力してください" required>
+	<label for="name">氏名</label>
+		<input type="text" name="name" value="${name }" placeholder="氏名を入力してください" maxlength="30" required>
 	<br>
 	
 	<label for="class">クラス</label>

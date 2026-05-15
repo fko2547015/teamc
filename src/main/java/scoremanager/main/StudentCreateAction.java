@@ -16,10 +16,8 @@ public class StudentCreateAction extends Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession();
-		Teacher teacher = null;
-		if (session != null) {
-			teacher = (Teacher)session.getAttribute("teacher");
-		} else {
+		Teacher teacher = (Teacher)session.getAttribute("teacher");
+		if (teacher == null) {
 			response.sendRedirect("Login.action");
 			return;
 		}

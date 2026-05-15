@@ -53,7 +53,7 @@
 							</c:otherwise>
 						</c:choose>
 					</td>
-					<td><a href="${pageContext.request.contextPath}/scoremanager/main/student_update.jsp">変更</a></td>
+					<td><a href="<%= request.getContextPath() %>/StudentUpdate.action?no=${student.no }">変更</a></td>
 				</tr>
 			</c:forEach>
 		</table>
