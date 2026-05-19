@@ -21,8 +21,12 @@
 			</c:forEach>
 		</select>
 	<label><input type="checkbox" name="f3" value="1">在学中</label>
-	<button>絞込み</button><%-- 学生情報を取得して一覧に表示 --%>
+	<button>絞込み</button>
 </form>
+
+<c:if test="${not empty errors }">
+	<p>${errors.f1 }</p>
+</c:if>
 
 <c:choose>
 	<%--<c:when test="${students.size() > 0 }"> DBからデータを取得して（DAO）studentsというリストをｊａｖａで作る --%>

@@ -4,7 +4,8 @@
 <jsp:include page="/side.jsp" />
 
 <h2>成績管理</h2>
-<form>
+<form mode="post">
+	<input type="hidden" name="mode" value="search">
 	<label for="year">入学年度</label>
 		<select id="year" name="f1">
 			<option value="0">--------</option>
@@ -35,6 +36,10 @@
 		</select>
 	<button>検索</button>
 </form>
+
+<c:if test="${not empty errors }">
+	<p>${errors.f1 }</p>
+</c:if>
 
 <c:choose>
 	<c:when test="${not empty tests}">

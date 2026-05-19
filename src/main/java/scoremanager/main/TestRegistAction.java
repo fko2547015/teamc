@@ -55,16 +55,19 @@ public class TestRegistAction extends Action {
 		}
 		
 		List<String> list = cNumDao.filter(teacher.getSchool());
-		List<Subject> subjects = subDao.filter();
+		List<Subject> subjects = subDao.filter(teacher.getSchool());
 		List<String> counts = new ArrayList<>();
 		counts.add("1");
 		counts.add("2");
-		if (entYear != 0 && !classNum.equals("0") && !classSub.equals("0") && !classCon.equals("0")) {
-			int classConInt = Integer.parseInt(classCon);
-			tests = tDao.filter(entYear, classNum, test.getSubject(), classConInt, teacher.getSchool());
-		} else {
-			errors.put("f1","入学年度とクラスと科目と回数を選択してください");
-			request.setAttribute("errors",errors);
+		String mode = request.getParameter("mode");
+		if ("search".equals(mode)) {
+			if (entYear != 0 && !classNum.equals("0") && !classSub.equals("0") && !classCon.equals("0")) {
+				int classConInt = Integer.parseInt(classCon);
+				tests = tDao.filter(entYear, classNum, test.getSubject(), classConInt, teacher.getSchool());
+			} else {
+				errors.put("f1","入学年度とクラスと科目と回数を選択してください");
+				request.setAttribute("errors",errors);
+			}
 		}
 		request.setAttribute("f1", entYear);
 		request.setAttribute("f2", classNum);
