@@ -37,7 +37,7 @@
 </form>
 
 <c:choose>
-	<c:when test="${not empty tests}"></c:when>
+	<c:when test="${not empty tests}">
 <%-- DBからデータを取得して（DAO）testsというリストをｊａｖａで作る --%>
 	<div>科目: ${tests.sub() }(${tests.con() })</div>
 	<table>
@@ -59,7 +59,8 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<input type="button" name="fin" value="登録して終了" onclick="location.href='<%--成績登録完了画面 --%>>'">
+	<input type="button" name="fin" value="登録して終了" onclick="location.href='<%= request.getContextPath() %>/TestRegistExecute.action'">
+	</c:when>
 </c:choose>
 
 <input type="hidden" name="regist" value="${test.student.no }">

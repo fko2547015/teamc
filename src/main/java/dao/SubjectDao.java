@@ -38,7 +38,7 @@ public class SubjectDao extends Dao {
 		Connection connection = getConnection();
 		PreparedStatement statement = null;
 		try {
-			statement = connection.prepareStatement("select * from subject order by subject_cd");
+			statement = connection.prepareStatement("select * from subject order by cd");
 			ResultSet rSet = statement.executeQuery();
 			while (rSet.next()) {
 				Subject subject = new Subject();

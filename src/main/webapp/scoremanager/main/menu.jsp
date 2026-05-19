@@ -12,7 +12,7 @@
 	
 		<div>
 			<label>成績管理</label>
-				<a href="TestRegist.action">成績登録</a>
+				<a href="<%= request.getContextPath() %>/TestRegist.action">成績登録</a>
 				<a href="TestList.action">成績参照</a>
 		</div>
 	
