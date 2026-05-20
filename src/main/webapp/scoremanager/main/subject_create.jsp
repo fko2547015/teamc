@@ -9,7 +9,7 @@
 
     <label>科目コード<br>
         <input type="text"
-               name="subject_cd"
+               name="cd"
                placeholder="科目コードを入力してください"
                maxlength="3"
                required>
@@ -18,7 +18,7 @@
     
     <label>科目名<br>
         <input type="text"
-               name="subject_name"
+               name="name"
                placeholder="科目名を入力してください"
                maxlength="20"
                required>
@@ -27,5 +27,5 @@
     <input type="submit" value="登録">
 
 </form>
-<a href="${pageContext.request.contextPath}/scoremanager/main/subject_list.jsp">戻る</a>
+<a href="<%= request.getContextPath() %>/subject_list.jsp">戻る</a>
 <jsp:include page="/footer.html" />

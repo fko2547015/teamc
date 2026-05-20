@@ -4,7 +4,7 @@
 <jsp:include page="/side.jsp" />
 
 <h2>科目管理</h2>
-<a href="${pageContext.request.contextPath}/scoremanager/main/subject_create.jsp">新規登録</a>
+<a href="<%= request.getContextPath() %>/subject_create.jsp">新規登録</a>
 
 <table>
 	<tr>
@@ -18,10 +18,10 @@
 			<td>${subject.cd }</td>
 			<td>${subject.name }</td>
 			<td>
-			    <a href="${pageContext.request.contextPath}/scoremanager/main/subject_update.jsp?cd=${subject.cd}">変更</a>
+			    <a href="<%= request.getContextPath() %>/subject_update.jsp?cd=${subject.cd}">変更</a>
 			</td>
 			<td>
-			    <a href="${pageContext.request.contextPath}/scoremanager/main/subject_delete.jsp?cd=${subject.cd}">削除</a>
+			    <a href="<%= request.getContextPath() %>/subject_delete.jsp?cd=${subject.cd}">削除</a>
 			</td>
 			
 		</tr>
