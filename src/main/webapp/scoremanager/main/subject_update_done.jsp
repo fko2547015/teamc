@@ -7,6 +7,6 @@
 
 <p>変更が完了しました</p>
 
-<a href="<%= request.getContextPath() %>/subject_list.jsp">科目一覧</a>
+<a href="<%= request.getContextPath() %>/SubjectList.action">科目一覧</a>
 
 <jsp:include page="/footer.html" />

@@ -15,7 +15,7 @@
 </form>
 
 
-<a href="<%= request.getContextPath() %>/subject_list.jsp">戻る</a>
+<a href="<%= request.getContextPath() %>/SubjectList.action">戻る</a>
 
 
 <jsp:include page="/footer.html" />

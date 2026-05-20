@@ -18,6 +18,8 @@ public class SubjectDao extends Dao {
 		try {
 			statement = connection.prepareStatement("select * from subject where school_cd=? and cd=?");
 			statement.setString(1, schoolcd);
+			statement.setString(2, cd);
+			
 			ResultSet rSet = statement.executeQuery();
 			
 			if (rSet.next()) {
@@ -40,6 +42,7 @@ public class SubjectDao extends Dao {
 		PreparedStatement statement = null;
 		try {
 			statement = connection.prepareStatement("select * from subject where school_cd=? order by cd");
+			statement.setString(1, school.getCd());
 			ResultSet rSet = statement.executeQuery();
 			while (rSet.next()) {
 				Subject subject = new Subject();
@@ -92,7 +95,7 @@ public class SubjectDao extends Dao {
 		try {
 			statement = connection.prepareStatement("delete from subject where school_cd=? and cd=?");
 			statement.setString(1, school.getCd());
-			statement.setString(1, subject.getCd());
+			statement.setString(2, subject.getCd());
 			count = statement.executeUpdate();
 		}finally {
 			if (statement != null) statement.close();

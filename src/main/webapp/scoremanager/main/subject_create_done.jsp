@@ -7,8 +7,8 @@
 
 <p>登録が完了しました</p>
 
-<a href="<%= request.getContextPath() %>/subject_create.jsp">戻る</a>
-<a href="<%= request.getContextPath() %>/subject_list.jsp">科目一覧</a>
+<a href="<%= request.getContextPath() %>/SubjectCreate.action">戻る</a>
+<a href="<%= request.getContextPath() %>/SubjectList.action">科目一覧</a>
 
 
 <jsp:include page="/footer.html" />
