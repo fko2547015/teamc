@@ -17,7 +17,7 @@
 		</div>
 	
 		<div>	
-			<a href="${pageContext.request.contextPath}/scoremanager/main/subject_list.jsp">科目管理</a>
+			<a href="<%= request.getContextPath() %>/SubjectList.action">科目管理</a>
 		</div>
 	
 	</nav>

@@ -10,7 +10,7 @@
 					<li><a href="<%= request.getContextPath() %>/TestRegist.action">成績登録</a></li>
 					<li><a href="TestList.action">成績参照</a></li>
 				</ul>
-				<li><a href="${pageContext.request.contextPath}/scoremanager/main/subject_list.jsp">科目管理</a></li>
+				<li><a href="<%= request.getContextPath() %>/SubjectList.action">科目管理</a></li>
  
 			</ul>
 		</nav>

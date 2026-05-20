@@ -5,11 +5,11 @@
 
 <h2>科目情報削除</h2>
 
-<p>「${name}(${cd})」を削除してもよろしいですか</p>
+<p>「${subject.name}(${subject.cd})」を削除してもよろしいですか</p>
 
 <form action="SubjectDeleteExecute.action" method="post">
-    <input type="hidden" name="cd" value="${cd}">
-    <input type="hidden" name="name" value="${name}">
+    <input type="hidden" name="cd" value="${subject.cd}">
+    <input type="hidden" name="name" value="${subject.name}">
     
     <input type="submit" value="削除">
 </form>

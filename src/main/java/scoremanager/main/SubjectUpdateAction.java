@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+import bean.School;
 import bean.Subject;
 import bean.Teacher;
 import dao.SubjectDao;
@@ -21,6 +22,7 @@ public class SubjectUpdateAction extends Action {
 		String cd = request.getParameter("cd");
 		
 		SubjectDao dao = new SubjectDao();
+		School school = teacher.getSchool();
 		Subject subject =  dao.get(school.getCd(), cd);
 		
 		request.setAttribute("cd", subject.getCd());

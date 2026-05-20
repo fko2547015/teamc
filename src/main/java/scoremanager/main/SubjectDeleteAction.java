@@ -4,7 +4,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+import bean.School;
+import bean.Subject;
 import bean.Teacher;
+import dao.SubjectDao;
 import tool.Action;
 
 
@@ -17,11 +20,18 @@ public class SubjectDeleteAction extends Action {
 			response.sendRedirect("Login.action");
 			return;
 		}
-		String subjectCd = request.getParameter("cd");
-		String subjectName = request.getParameter("name");
+		School school = teacher.getSchool();
+		String cd = request.getParameter("cd");
 		
-		request.setAttribute("cd",subjectCd);
-		request.setAttribute("name",subjectName);
+		SubjectDao dao = new SubjectDao();
+		Subject subject = dao.get(school.getCd(), cd);
+		
+		request.setAttribute("subject", subject);
+//		String subjectCd = request.getParameter("cd");
+//		String subjectName = request.getParameter("name");
+//		
+//		request.setAttribute("cd",subjectCd);
+//		request.setAttribute("name",subjectName);
 		
 		request.getRequestDispatcher("/scoremanager/main/subject_delete.jsp").forward(request,response);
 	}
