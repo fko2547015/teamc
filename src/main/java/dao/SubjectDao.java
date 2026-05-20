@@ -10,20 +10,20 @@ import bean.Subject;
 public class SubjectDao extends Dao {
 	
 	//1件取得
-	public Subject get(String subjectCd) throws Exception {
+	public Subject get(String schoolcd, String cd) throws Exception {
 		Subject subject = null;
 		
 		Connection connection = getConnection();
 		PreparedStatement statement = null;
 		try {
-			statement = connection.prepareStatement("select * from subject where subject_cd=?");
-			statement.setString(1, subjectCd);
+			statement = connection.prepareStatement("select * from subject where school_cd=? and cd=?");
+			statement.setString(1, schoolcd);
 			ResultSet rSet = statement.executeQuery();
 			
 			if (rSet.next()) {
 				subject = new Subject();
-				subject.setCd(rSet.getString("subject_cd"));
-				subject.setName(rSet.getString("subject_name"));
+				subject.setCd(rSet.getString("cd"));
+				subject.setName(rSet.getString("name"));
 	
 			}
 		} finally {
@@ -39,12 +39,12 @@ public class SubjectDao extends Dao {
 		Connection connection = getConnection();
 		PreparedStatement statement = null;
 		try {
-			statement = connection.prepareStatement("select * from subject order by cd");
+			statement = connection.prepareStatement("select * from subject where school_cd=? order by cd");
 			ResultSet rSet = statement.executeQuery();
 			while (rSet.next()) {
 				Subject subject = new Subject();
-				subject.setCd(rSet.getString("subject_cd"));
-				subject.setName(rSet.getString("subject_name"));
+				subject.setCd(rSet.getString("cd"));
+				subject.setName(rSet.getString("name"));
 				list.add(subject);
 		    }
 		}finally {
@@ -55,22 +55,24 @@ public class SubjectDao extends Dao {
 	}
 	
 	//保存、登録、更新
-	public boolean save(Subject subject) throws Exception {
+	public boolean save(School school, Subject subject) throws Exception {
 		Connection connection = getConnection();
 		PreparedStatement statement= null;
 		int count = 0;
 		try {
-			Subject old = get(subject.getCd());
+			Subject old = get(school.getCd(), subject.getCd());
 			if(old == null) {
-				statement = connection.prepareStatement("insert into subject(subject_cd, subject_name) values(?,?)");
-				statement.setString(1, subject.getCd());
-				statement.setString(2, subject.getName());
+				statement = connection.prepareStatement("insert into subject(school_cd, cd, name) values(?, ?, ?)");
+				statement.setString(1, school.getCd());
+				statement.setString(2, subject.getCd());
+				statement.setString(3, subject.getName());
 				
 			}else {
 				//更新
-				statement = connection.prepareStatement("update subject set subject_name=? where subject_cd=?");
+				statement = connection.prepareStatement("update subject set name=? where school_cd=? and cd=?");
 				statement.setString(1, subject.getName());
-				statement.setString(2, subject.getCd());
+				statement.setString(2, school.getCd());
+				statement.setString(3, subject.getCd());
 			}
 			count = statement.executeUpdate();
 			
@@ -83,12 +85,13 @@ public class SubjectDao extends Dao {
 	}
 	
 	//削除
-	public boolean delete(Subject subject) throws Exception {
+	public boolean delete(School school, Subject subject) throws Exception {
 		Connection connection = getConnection();
 		PreparedStatement statement = null;
 		int count = 0;
 		try {
-			statement = connection.prepareStatement("delete from subject where subject_cd=?");
+			statement = connection.prepareStatement("delete from subject where school_cd=? and cd=?");
+			statement.setString(1, school.getCd());
 			statement.setString(1, subject.getCd());
 			count = statement.executeUpdate();
 		}finally {
@@ -99,3 +102,4 @@ public class SubjectDao extends Dao {
 		return count >0;
 	}
 }
+

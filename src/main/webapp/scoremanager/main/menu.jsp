@@ -16,7 +16,7 @@
 		</div>
 	
 		<div>	
-			<a href="<%--科目管理画面へ--%>">科目管理</a>
+			<a href="${pageContext.request.contextPath}/scoremanager/main/subject_list.jsp">科目管理</a>
 		</div>
 	
 	</nav>

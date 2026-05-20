@@ -5,17 +5,17 @@
 
 <h2>科目情報削除</h2>
 
-<p>「${subject_name}(${subject_cd})」を削除してもよろしいですか</p>
+<p>「${name}(${cd})」を削除してもよろしいですか</p>
 
 <form action="SubjectDeleteExecute.action" method="post">
-    <input type="hidden" name="subject_cd" value="${subject_cd}">
-    <input type="hidden" name="subject_name" value="${subject_name}">
+    <input type="hidden" name="cd" value="${cd}">
+    <input type="hidden" name="name" value="${name}">
     
     <input type="submit" value="削除">
 </form>
 
 
-<a href="${pageContext.request.contextPath}/scoremanager/main/subject_list.jsp">戻る</a>
+<a href="<%= request.getContextPath() %>/subject_list.jsp">戻る</a>
 
 
 <jsp:include page="/footer.html" />

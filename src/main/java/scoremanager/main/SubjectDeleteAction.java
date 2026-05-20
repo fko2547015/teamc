@@ -9,11 +9,11 @@ import tool.Action;
 public class SubjectDeleteAction extends Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		String subjectCd = request.getParameter("subject_cd");
-		String subjectName = request.getParameter("subject_name");
+		String subjectCd = request.getParameter("cd");
+		String subjectName = request.getParameter("name");
 		
-		request.setAttribute("subject_cd",subjectCd);
-		request.setAttribute("subject_name",subjectName);
+		request.setAttribute("cd",subjectCd);
+		request.setAttribute("name",subjectName);
 		
 		request.getRequestDispatcher("subject_delete.jsp").forward(request,response);
 	}

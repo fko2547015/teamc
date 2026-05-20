@@ -7,6 +7,6 @@
 
 <p>削除が完了しました</p>
 
-<a href="${pageContext.request.contextPath}/scoremanager/main/subject_list.jsp">科目一覧</a>
+<a href="<%= request.getContextPath() %>/subject_list.jsp">科目一覧</a>
 
 <jsp:include page="/footer.html" />
