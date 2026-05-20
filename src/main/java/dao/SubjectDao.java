@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import bean.School;
 import bean.Subject;
 
 public class SubjectDao extends Dao {
@@ -33,12 +34,12 @@ public class SubjectDao extends Dao {
 	}
 	
 	//一覧取得
-	public java.util.List<Subject> filter() throws Exception {
+	public java.util.List<Subject> filter(School school) throws Exception {
 		java.util.List<Subject> list = new java.util.ArrayList<>();
 		Connection connection = getConnection();
 		PreparedStatement statement = null;
 		try {
-			statement = connection.prepareStatement("select * from subject order by subject_cd");
+			statement = connection.prepareStatement("select * from subject order by cd");
 			ResultSet rSet = statement.executeQuery();
 			while (rSet.next()) {
 				Subject subject = new Subject();
