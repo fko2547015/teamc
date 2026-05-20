@@ -1,12 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page import="bean.Teacher" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>エラーページ</title>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
+	<h1 id="header_h1">得点管理システム</h1>
+	<% Teacher teacher = (Teacher) session.getAttribute("teacher"); 
+	if (teacher != null) { %>
+	<span><%= teacher.getName() %>様</span>
+	<a href="<%= request.getContextPath() %>/Logout.action">ログアウト</a>
+	<% } %>
+<jsp:include page="/side.jsp" />
 
-</body>
-</html>
+<label><p>エラーが発生しました</p></label>
+
+<jsp:include page="/footer.html" />
