@@ -2,7 +2,7 @@ package bean;
 
 public class Test {
 	private Student student;
-	private String clsddNum;
+	private String classNum;
 	private Subject subject;
 	private School school;
 	private int no;
@@ -13,11 +13,11 @@ public class Test {
 	public void setStudent(Student student) {
 		this.student = student;
 	}
-	public String getClsddNum() {
-		return clsddNum;
+	public String getClassNum() {
+		return classNum;
 	}
-	public void setClsddNum(String clsddNum) {
-		this.clsddNum = clsddNum;
+	public void setClassNum(String classNum) {
+		this.classNum = classNum;
 	}
 	public Subject getSubject() {
 		return subject;

@@ -8,6 +8,6 @@
 <p>変更が完了しました</p>
 
 
-<a href="${pageContext.request.contextPath}/scoremanager/main/student_list.jsp">学生一覧</a>
+<a href="<%= request.getContextPath() %>/StudentList.action">学生一覧</a>
 
 <jsp:include page="/footer.html" />

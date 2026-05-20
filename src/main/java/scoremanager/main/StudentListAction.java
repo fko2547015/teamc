@@ -21,6 +21,10 @@ public class StudentListAction extends Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession();
 		Teacher teacher = (Teacher)session.getAttribute("teacher");
+		if (teacher == null) {
+			response.sendRedirect("Login.action");
+			return;
+		}
 		
 		String entYearStr = "";
 		String classNum = "";

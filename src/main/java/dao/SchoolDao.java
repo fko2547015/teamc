@@ -32,6 +32,13 @@ public class SchoolDao extends Dao {
 					throw sqle;
 				}
 			}
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
 		}
 		return school;
 	}

@@ -4,8 +4,7 @@
 <jsp:include page="/side.jsp" />
 
 <h2>学生管理</h2>
-<%-- <a href="#">新規登録</a> --%>
-<a href="${pageContext.request.contextPath}/scoremanager/main/student_create.jsp">新規登録</a>
+<a href="<%= request.getContextPath() %>/StudentCreate.action">新規登録</a>
 <form>
 	<label for="year">入学年度</label>
 		<select id="year" name="f1">
@@ -22,8 +21,12 @@
 			</c:forEach>
 		</select>
 	<label><input type="checkbox" name="f3" value="1">在学中</label>
-	<button>絞込み</button><%-- 学生情報を取得して一覧に表示 --%>
+	<button>絞込み</button>
 </form>
+
+<c:if test="${not empty errors }">
+	<p>${errors.f1 }</p>
+</c:if>
 
 <c:choose>
 	<%--<c:when test="${students.size() > 0 }"> DBからデータを取得して（DAO）studentsというリストをｊａｖａで作る --%>
@@ -54,7 +57,7 @@
 							</c:otherwise>
 						</c:choose>
 					</td>
-					<td><a href="${pageContext.request.contextPath}/scoremanager/main/student_update.jsp">変更</a></td>
+					<td><a href="<%= request.getContextPath() %>/StudentUpdate.action?no=${student.no }">変更</a></td>
 				</tr>
 			</c:forEach>
 		</table>

@@ -8,6 +8,7 @@ import tool.Action;
 public class TestListAction extends Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		
+		request.getRequestDispatcher("/main/test_list.jsp").forward(request, response);
+
 	}
 }
