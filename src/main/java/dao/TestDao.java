@@ -33,7 +33,7 @@ public class TestDao extends Dao {
 				test.setSchool(schoolDao.get(rSet.getString("school_cd")));
 				test.setNo(rSet.getInt("no"));
 				test.setPoint(rSet.getInt("point"));
-				test.setClassNum(rSet.getString("classNum"));
+				test.setClassNum(rSet.getString("class_num"));
 			} else {
 				test = null;
 			}
@@ -60,17 +60,18 @@ public class TestDao extends Dao {
 	private List<Test> postFilter(ResultSet rSet,School school) throws Exception {
 		List<Test> list = new ArrayList<>();
 		try {
+			StudentDao studentDao = new StudentDao();
+			SubjectDao subjectDao = new SubjectDao();
+			SchoolDao schoolDao = new SchoolDao();
 			while (rSet.next()) {
 				Test test = new Test();
-				StudentDao studentDao = new StudentDao();
-				SubjectDao subjectDao = new SubjectDao();
-				SchoolDao schoolDao = new SchoolDao();
 				test.setStudent(studentDao.get(rSet.getString("student_no")));
 				test.setSubject(subjectDao.get(rSet.getString("subject_cd")));
 				test.setSchool(schoolDao.get(rSet.getString("school_cd")));
 				test.setNo(rSet.getInt("no"));
 				test.setPoint(rSet.getInt("point"));
-				test.setClassNum(rSet.getString("classNum"));
+				test.setClassNum(rSet.getString("class_num"));
+				list.add(test);
 			}
 		} catch (SQLException | NullPointerException e) {
 			e.printStackTrace();
@@ -111,10 +112,70 @@ public class TestDao extends Dao {
 		}
 		return list;
 	}
-//	public boolean save(List<Test> list) throws Exception {
-//		return
-//	}
-//	private boolean save(Test test,Connection connection) throws Exception {
-//		return
-//	}
+	public boolean save(List<Test> list) throws Exception {
+		Connection connection = getConnection();
+		int count = 0;
+		try {
+			for (Test test : list) {
+				if (save(test,connection)) {
+					count ++;
+				}
+			}
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
+		}
+		if (count > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	private boolean save(Test test,Connection connection) throws Exception {
+		PreparedStatement statement = null;
+		int count = 0;
+		try {
+			Test old = get(test.getStudent(),test.getSubject(),test.getSchool(),test.getNo());
+			if (old == null) {
+				statement = connection.prepareStatement("insert into test(student_no, subject_cd, school_cd, no, point, class_num) values(?, ?, ?, ?, ?, ?)");
+				statement.setString(1, test.getStudent().getNo());
+				statement.setString(2, test.getSubject().getCd());
+				statement.setString(3, test.getSchool().getCd());
+				statement.setInt(4, test.getNo());
+				statement.setInt(5, test.getPoint());
+				statement.setString(6, test.getClassNum());
+			} else {
+				statement = connection.prepareStatement("update test set point=?, class_num=? where student_no=? and subject_cd=? and school_cd=? and no=?");
+				statement.setString(3, test.getStudent().getNo());
+				statement.setString(4, test.getSubject().getCd());
+				statement.setString(5, test.getSchool().getCd());
+				statement.setInt(6, test.getNo());
+				statement.setInt(1, test.getPoint());
+				statement.setString(2, test.getClassNum());
+			}
+			count = statement.executeUpdate();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (statement != null) {
+				try {
+				statement.close();
+				} catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
+		}
+		if (count > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

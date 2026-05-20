@@ -37,6 +37,7 @@ public class TestRegistAction extends Action {
 		ClassNumDao cNumDao = new ClassNumDao();
 		SubjectDao subDao = new SubjectDao();
 		TestDao tDao = new TestDao();
+		Subject subject = new Subject();
 		Test test = new Test();
 		List<Test> tests = null;
 		Map<String,String> errors = new HashMap<>();
@@ -62,8 +63,17 @@ public class TestRegistAction extends Action {
 		String mode = request.getParameter("mode");
 		if ("search".equals(mode)) {
 			if (entYear != 0 && !classNum.equals("0") && !classSub.equals("0") && !classCon.equals("0")) {
+				for (Subject sub : subjects) {
+					if (sub.getName().equals(classSub)) {
+						subject = sub;
+						break;
+					}
+				}
 				int classConInt = Integer.parseInt(classCon);
-				tests = tDao.filter(entYear, classNum, test.getSubject(), classConInt, teacher.getSchool());
+				tests = tDao.filter(entYear, classNum, subject, classConInt, teacher.getSchool());
+				session.setAttribute("tests",tests);
+				session.setAttribute("subject", subject);
+				session.setAttribute("no", classConInt);
 			} else {
 				errors.put("f1","入学年度とクラスと科目と回数を選択してください");
 				request.setAttribute("errors",errors);
