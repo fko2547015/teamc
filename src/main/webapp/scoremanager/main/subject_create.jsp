@@ -5,7 +5,7 @@
 
 <h2>科目情報登録</h2>
 
-<form action="<%-- どこに送ろうかまだ未定 --%>" method="post">
+<form action="<%= request.getContextPath() %>/SubjectCreateExecute.action" method="post">
 
     <label>科目コード<br>
         <input type="text"
