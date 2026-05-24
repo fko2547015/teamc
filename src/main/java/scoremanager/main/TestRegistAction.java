@@ -38,7 +38,6 @@ public class TestRegistAction extends Action {
 		SubjectDao subDao = new SubjectDao();
 		TestDao tDao = new TestDao();
 		Subject subject = new Subject();
-		Test test = new Test();
 		List<Test> tests = null;
 		Map<String,String> errors = new HashMap<>();
 		

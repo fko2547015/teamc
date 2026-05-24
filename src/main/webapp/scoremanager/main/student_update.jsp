@@ -28,7 +28,7 @@
 			</c:forEach>
 		</select>
 	<br>
-	<label>在学中<input type="checkbox" name="is_attend" value="${is_attend }"
+	<label>在学中<input type="checkbox" name="is_attend" value="1"
        <c:if test="${is_attend == true}">checked</c:if>>
 	</label>
 	<br>

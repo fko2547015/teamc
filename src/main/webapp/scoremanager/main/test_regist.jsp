@@ -24,14 +24,14 @@
 		<select id="sub" name="f3">
 			<option value="0">--------</option>
 			<c:forEach var="sub"  items="${class_sub_set }">
-				<option value="${sub }" <c:if test="${sub==f3 }">selected</c:if>>${sub }</option>
+				<option value="${sub.name }" <c:if test="${sub.name==f3 }">selected</c:if>>${sub.name }</option>
 			</c:forEach>
 		</select>	
 	<label for="con">回数</label>
 		<select id="con" name="f4">
 			<option value="0">--------</option>
 			<c:forEach var="con"  items="${class_con_set }">
-				<option value="${con }" <c:if test="${con==f3 }">selected</c:if>>${con }</option>
+				<option value="${con }" <c:if test="${con==f4 }">selected</c:if>>${con }</option>
 			</c:forEach>
 		</select>
 	<button>検索</button>
@@ -44,7 +44,7 @@
 <c:choose>
 	<c:when test="${not empty tests}">
 <%-- DBからデータを取得して（DAO）testsというリストをｊａｖａで作る --%>
-	<div>科目: ${tests.sub() }(${tests.con() })</div>
+	<div>科目: ${subject.name } (${no }回)</div>
 	<table>
 		<tr>
 			<th>入学年度
@@ -56,10 +56,10 @@
 		</tr>
 		<c:forEach var="test" items="${tests }">
 			<tr>
-				<td>${test.entYear }</td>
+				<td>${test.student.entYear }</td>
 				<td>${test.classNum }</td>
-				<td>${test.studentNum }</td>
-				<td>${test.name }</td>
+				<td>${test.student.no }</td>
+				<td>${test.student.name }</td>
 				<td><input type="text" name="point_${test.student.no }" value="${test.point }"></td>
 			</tr>
 		</c:forEach>

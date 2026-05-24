@@ -45,6 +45,9 @@ public class StudentListAction extends Action {
 		if (entYearStr != null) {
 			entYear = Integer.parseInt(entYearStr);
 		}
+		if (isAttendStr != null)  {
+			isAttend = true;
+		}
 		// リストを初期化
 		List<Integer> entYearSet = new ArrayList<>();
 		// 10年前から1年後までリストに追加
@@ -67,10 +70,7 @@ public class StudentListAction extends Action {
 		}
 		request.setAttribute("f1", entYear);
 		request.setAttribute("f2", classNum);
-		if (isAttendStr != null) {
-			isAttend = true;
-			request.setAttribute("f3", isAttendStr);
-		}
+		request.setAttribute("f3", isAttend);
 		request.setAttribute("students", students);
 		request.setAttribute("class_num_set", list);
 		request.setAttribute("ent_year_set", entYearSet);

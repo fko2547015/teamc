@@ -20,7 +20,7 @@
 				<option value="${num }" <c:if test="${num==f2 }">selected</c:if>>${num }</option>
 			</c:forEach>
 		</select>
-	<label><input type="checkbox" name="f3" value="1">在学中</label>
+	<label><input type="checkbox" name="f3" value="1" <c:if test="${f3 == true}">checked</c:if>>在学中</label>
 	<button>絞込み</button>
 </form>
 

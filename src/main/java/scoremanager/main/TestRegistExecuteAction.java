@@ -12,6 +12,7 @@ import dao.TestDao;
 import tool.Action;
 
 public class TestRegistExecuteAction extends Action {
+	@SuppressWarnings("unchecked")
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession();
@@ -20,7 +21,7 @@ public class TestRegistExecuteAction extends Action {
 			response.sendRedirect("Login.action");
 			return;
 		}
-		String student_no;
+
 		String pointStr = "0";
 		int point;
 		TestDao tDao = new TestDao();

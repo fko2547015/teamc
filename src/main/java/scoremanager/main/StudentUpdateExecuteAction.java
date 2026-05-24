@@ -35,7 +35,7 @@ public class StudentUpdateExecuteAction extends Action {
 		if (entYearStr != null && !entYearStr.equals("")) {
 			entYear = Integer.parseInt(entYearStr);
 		}
-		boolean isAttend = Boolean.parseBoolean(isAttendStr);
+		boolean isAttend = isAttendStr != null;
 		Student student = new Student();
 		student.setNo(no);
 		student.setName(name);
