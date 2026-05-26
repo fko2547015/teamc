@@ -45,6 +45,7 @@
 	<c:when test="${not empty tests}">
 <%-- DBからデータを取得して（DAO）testsというリストをｊａｖａで作る --%>
 	<div>科目: ${subject.name } (${no }回)</div>
+	<form action="<%= request.getContextPath() %>/TestRegistExecute.action" method="post">
 	<table>
 		<tr>
 			<th>入学年度
@@ -64,7 +65,8 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<input type="button" name="fin" value="登録して終了" onclick="location.href='<%= request.getContextPath() %>/TestRegistExecute.action'">
+	<button name="fin">登録して終了</button>
+	</form>
 	</c:when>
 </c:choose>
 
