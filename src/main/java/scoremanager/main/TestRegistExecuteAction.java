@@ -28,6 +28,10 @@ public class TestRegistExecuteAction extends Action {
 		List<Test> tests = null;
 		
 		tests = (List<Test>)session.getAttribute("tests");
+		if (tests == null || tests.isEmpty()) {
+	        response.sendRedirect("TestRegist.action");
+	        return;
+	    }
 		for (Test test : tests) {
 			pointStr = request.getParameter("point_" + test.getStudent().getNo());
 			if (pointStr != null && !pointStr.equals("")) {
@@ -37,6 +41,7 @@ public class TestRegistExecuteAction extends Action {
 		}
 		
 		tDao.save(tests);
+		session.removeAttribute("tests");
 		
 		request.getRequestDispatcher("/scoremanager/main/test_regist_done.jsp").forward(request, response);
 	}

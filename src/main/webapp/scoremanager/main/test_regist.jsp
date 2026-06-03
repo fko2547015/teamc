@@ -8,9 +8,7 @@
 
 <form method="post">
 
-    <!-- ========================= -->
-    <!-- 🔽 検索条件 -->
-    <!-- ========================= -->
+    <!-- 検索条件 -->
     入学年度:
     <select name="f1">
         <option value="0">--------</option>
@@ -51,14 +49,12 @@
         </c:forEach>
     </select>
 
-    <!-- 🔍 検索 -->
+    <!-- 検索 -->
     <button type="submit" name="mode" value="search">検索</button>
 
     <hr>
 
-    <!-- ========================= -->
-    <!-- 🧾 検索結果 -->
-    <!-- ========================= -->
+    <!-- 検索結果 -->
     <c:if test="${not empty tests}">
 
         <div>
@@ -87,7 +83,7 @@
                                value="${test.point}">
                     </td>
 
-                    <!-- ✅ 重要：複数登録用 -->
+                    <!-- ✅ 一括登録用 -->
                     <input type="hidden"
                            name="studentNos"
                            value="${test.student.no}">
@@ -95,20 +91,18 @@
             </c:forEach>
         </table>
 
-        <!-- ✅ Action用パラメータ -->
+        <!-- Action用 -->
         <input type="hidden" name="count" value="${f4}">
         <input type="hidden" name="subject" value="${f3}">
 
-        <!-- 💾 登録 -->
+        <!-- 登録 -->
         <button type="submit" name="mode" value="save">登録</button>
 
     </c:if>
 
 </form>
 
-<!-- ========================= -->
-<!-- ⚠️ エラー表示 -->
-<!-- ========================= -->
+<!-- エラー表示 -->
 <c:if test="${not empty errors}">
     <p style="color:red;">
         ${errors.f1}
