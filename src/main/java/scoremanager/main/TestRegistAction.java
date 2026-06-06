@@ -157,9 +157,10 @@ public class TestRegistAction extends Action {
             // ✅ 保存
             tDao.save(list);
 
-            // ✅ リダイレクト
-            response.sendRedirect("TestRegist.action");
+
+            response.sendRedirect("scoremanager/main/test_regist_done.jsp");
             return;
+
         }
 
         // ============================

@@ -6,7 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>得点管理システム</title>
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sty.css">
 </head>
 <body>
 	<h1 id="header_h1">得点管理システム</h1>

@@ -4,13 +4,13 @@
 	<div>
 		<nav>
 			<ul>
-				<li><a href="<%= request.getContextPath() %>/Menu.action">メニュー</a></li>
-				<li><a href="<%= request.getContextPath() %>/StudentList.action">学生管理</a></li>
+				<li><a href="Menu.action">メニュー</a></li>
+				<li><a href="StudentList.action">学生管理</a></li>
 				<ul><label>成績管理</label>
-					<li><a href="<%= request.getContextPath() %>/TestRegist.action">成績登録</a></li>
+					<li><a href="TestRegist.action">成績登録</a></li>
 					<li><a href="TestList.action">成績参照</a></li>
 				</ul>
-				<li><a href="<%= request.getContextPath() %>/SubjectList.action">科目管理</a></li>
+				<li><a href="SubjectList.action">科目管理</a></li>
  
 			</ul>
 		</nav>
