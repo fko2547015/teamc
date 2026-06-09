@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <jsp:include page="/header.jsp" />
+
+<div class="container">
 <jsp:include page="/side.jsp" />
+	<main>
+		<h2>科目情報変更</h2>
+		
+		
+		
+		
+		<a href="<%= request.getContextPath() %>/SubjectList.action">戻る</a>
+	</main>
+</div>
 
-<h2>科目情報変更</h2>
-
-
-
-
-<a href="<%= request.getContextPath() %>/SubjectList.action">戻る</a>
 <jsp:include page="/footer.html" />
