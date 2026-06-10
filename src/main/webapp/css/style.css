@@ -55,11 +55,17 @@ body {
     display: flex;
     min-height: calc(100vh - 110px);
 }
-
+.containers {
+	display: flex;
+}
+.container {
+	flex: 1;
+}
 /* =========================
    サイドバー（class化）
 ========================= */
 .sidebar {
+	min-height: 100vh;
     width: 220px;
     background-color: #34495e;
     color: white;
