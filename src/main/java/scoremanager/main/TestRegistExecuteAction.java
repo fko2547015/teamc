@@ -1,6 +1,8 @@
 package scoremanager.main;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -26,6 +28,7 @@ public class TestRegistExecuteAction extends Action {
 		int point;
 		TestDao tDao = new TestDao();
 		List<Test> tests = null;
+		Map<String,String> errors = new HashMap<>();
 		
 		tests = (List<Test>)session.getAttribute("tests");
 		if (tests == null || tests.isEmpty()) {
@@ -36,7 +39,12 @@ public class TestRegistExecuteAction extends Action {
 			pointStr = request.getParameter("point_" + test.getStudent().getNo());
 			if (pointStr != null && !pointStr.equals("")) {
 				point = Integer.parseInt(pointStr);
-				test.setPoint(point);
+				if (point >= 0 && point <= 100) {
+					test.setPoint(point);
+				} else {
+					errors.put("f2","0~100の範囲で入力してください");
+					request.setAttribute("errors",errors);
+				}
 			}
 		}
 		

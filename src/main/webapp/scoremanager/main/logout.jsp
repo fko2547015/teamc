@@ -2,13 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <jsp:include page="../../header.jsp" />
-<jsp:include page="../../side.jsp" />
-
-<h2>ログアウト</h2>
-
-<label>
-<p>ログアウトしました</p>
-</label>
+<!--<jsp:include page="../../side.jsp" />-->
+<div class="container">
+	<main>
+		<h2>ログアウト</h2>
+		
+		<label>
+		<p>ログアウトしました</p>
+		</label>
+	</main>
+</div>
 
 <a href="<%= request.getContextPath() %>/Login.action">ログイン</a>
 

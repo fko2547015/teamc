@@ -1,41 +1,123 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
+
+
 <jsp:include page="/header.jsp" />
+
+<div class="container">
 <jsp:include page="/side.jsp" />
+	<main>
+		<h2>成績参照</h2>
+		
+		<!-- 科目検索フォーム -->
+		<form>
+		    <p>科目情報</p>
+		
+		    入学年度:
+		    <select name="f1">
+		        <option value="">--------</option>
+		        <c:forEach var="y" items="${ent_year_set}">
+		            <option value="${y}" <c:if test="${y==f1}">selected</c:if>>
+		                ${y}
+		            </option>
+		        </c:forEach>
+		    </select>
+		
+		    クラス:
+		    <select name="f2">
+		        <option value="">--------</option>
+		        <c:forEach var="c" items="${class_num_set}">
+		            <option value="${c}" <c:if test="${c==f2}">selected</c:if>>
+		                ${c}
+		            </option>
+		        </c:forEach>
+		    </select>
+		
+		    科目:
+		    <select name="f3">
+		        <option value="">--------</option>
+		        <c:forEach var="sub" items="${class_sub_set}">
+		            <option value="${sub.cd}" <c:if test="${sub.cd==f3}">selected</c:if>>
+		                ${sub.name}
+		            </option>
+		        </c:forEach>
+		    </select>
+		
+		    <button>検索</button>
+		</form>
+		
+		<!-- 学生検索フォーム -->
+		<form>
+		    <p>学生情報</p>
+		    学生番号:
+		    <input type="text" name="f4" value="${f4}">
+		    <button>検索</button>
+		</form>
+		
+		<hr>
+		
+		<!-- ✅ 科目検索結果 -->
+		<c:if test="${not empty subjectTests}">
+		    <h3>科目別成績一覧</h3>
+		
+		    <table border="1">
+		        <tr>
+		            <th>学生番号</th>
+		            <th>名前</th>
+		
+		            <!-- 回数 -->
+		            <c:forEach var="n" items="${numList}">
+		                <th>${n}回</th>
+		            </c:forEach>
+		        </tr>
+		
+		        <!-- データ -->
+		        <c:forEach var="ts" items="${subjectTests}">
+		            <tr>
+		                <td>${ts.studentNo}</td>
+		                <td>${ts.studentName}</td>
+		
+		                <c:forEach var="n" items="${numList}">
+		                    <td>
+		                        <c:choose>
+		                            <c:when test="${ts.points[n] != null}">
+		                                ${ts.points[n]}
+		                            </c:when>
+		                            <c:otherwise>-</c:otherwise>
+		                        </c:choose>
+		                    </td>
+		                </c:forEach>
+		
+		            </tr>
+		        </c:forEach>
+		    </table>
+		</c:if>
+		
+		<!-- ✅ 学生検索結果 -->
+		<c:if test="${not empty studentTests}">
+		    <h3>学生の成績一覧</h3>
+		
+		    <table border="1">
+		        <tr>
+		            <th>科目名</th>
+		            <th>科目コード</th>
+		            <th>回数</th>
+		            <th>点数</th>
+		        </tr>
+		
+		        <c:forEach var="st" items="${studentTests}">
+		            <tr>
+		                <td>${st.subjectName}</td>
+		                <td>${st.subjectCd}</td>
+		                <td>${st.num}</td>
+		                <td>${st.point}</td>
+		            </tr>
+		        </c:forEach>
+		    </table>
+		</c:if>
+		
+	</main>
+</div>
 
-<h2>成績参照</h2>
-<form>
-	<label><p>科目情報</p></label>
-	<label for="year">入学年度</label>
-		<select id="year" name="f1">
-			<option value="0">--------</option>
-			<c:forEach var="year"  items="${ent_year_set }">
-				<option value="${year }" <c:if test="${year==f1 }">selected</c:if>>${year }</option>
-			</c:forEach>
-		</select>
-	<label for="class">クラス</label>
-		<select id="class" name="f2">
-			<option value="0">--------</option>
-			<c:forEach var="num"  items="${class_num_set }">
-				<option value="${num }" <c:if test="${num==f2 }">selected</c:if>>${num }</option>
-			</c:forEach>
-		</select>
-	<label for="sub">科目</label>
-		<select id="sub" name="f3">
-			<option value="0">--------</option>
-			<c:forEach var="sub"  items="${class_sub_set }">
-				<option value="${sub }" <c:if test="${sub==f3 }">selected</c:if>>${sub }</option>
-			</c:forEach>
-		</select>	
-	<button>検索</button><%-- 自画面に遷移、学生のほうの検索条件を削除して一覧表示 --%>
-</form>
-<form>
-	<label><p>学生情報</p></label>
-	<label>学生番号<input type="text" name="f4" value="${f4 }"></label>
-	<button>検索</button><%-- 自画面に遷移、科目の検索条件を削除して一覧表示 --%>
-</form>
-<label><p>科目情報を選択または学生情報を入力して検索ボタンをクリックしてください</p></label>
-
-<input type="hidden" name="f" value="${sj }">
-<input type="hidden" name="f" value="${st }">
 <jsp:include page="/footer.html" />
