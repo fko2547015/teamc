@@ -89,7 +89,11 @@ public class SubjectDao extends Dao {
 	
 	//削除
 	public boolean delete(School school, Subject subject) throws Exception {
+		System.out.println("delete start");
+		
 		Connection connection = getConnection();
+		System.out.println("connection ok");
+		
 		PreparedStatement statement = null;
 		int count = 0;
 		try {
