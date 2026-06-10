@@ -13,7 +13,9 @@
 </head>
 <body>
 <div id="header_area">
-	<h1 id="header_h1">得点管理システム</h1>
+	<a href="<%= request.getContextPath() %>/Menu.action">
+		<h1 id="header_h1">得点管理システム</h1>
+	</a>
 	<% Teacher teacher = (Teacher) session.getAttribute("teacher"); 
 	if (teacher != null) { %>
 	<span><%= teacher.getName() %>様</span>

@@ -25,8 +25,7 @@ public class SubjectUpdateAction extends Action {
 		School school = teacher.getSchool();
 		Subject subject =  dao.get(school.getCd(), cd);
 		
-		request.setAttribute("cd", subject.getCd());
-		request.setAttribute("name", subject.getName());
+		request.setAttribute("subject", subject);
 		
 		request.getRequestDispatcher("/scoremanager/main/subject_update.jsp").forward(request, response);
 		

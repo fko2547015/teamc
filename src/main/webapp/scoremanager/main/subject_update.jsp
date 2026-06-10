@@ -6,12 +6,19 @@
 <jsp:include page="/side.jsp" />
 	<main>
 		<h2>科目情報変更</h2>
+			<form action="<%= request.getContextPath() %>/SubjectUpdateExecute.action" method="post">
+			<label for="cd">科目コード</label>
+			<input type="text" id="cd" name="cd" value="${subject.cd }" readonly>
+			<br>
+			
+			<label for="subject_name">科目名</label>
+				<input type="text" id="name" name="name" value="${subject.name }">
+			<br>
+			
+			<button name="login">変更</button>
 		
-		
-		
-		
+		</form>
 		<a href="<%= request.getContextPath() %>/SubjectList.action">戻る</a>
 	</main>
 </div>
-
 <jsp:include page="/footer.html" />
