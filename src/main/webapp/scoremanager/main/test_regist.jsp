@@ -63,7 +63,12 @@
 						<td>${test.classNum }</td>
 						<td>${test.student.no }</td>
 						<td>${test.student.name }</td>
-						<td><input type="text" name="point_${test.student.no }" value="${test.point }"></td>
+						<td>
+						<input type="number" name="point_${test.student.no }" value="${test.point }">
+						<c:if test="${not empty errors.f2}">
+						    <p>${errors.f2}</p>
+						</c:if>
+						</td>
 					</tr>
 				</c:forEach>
 			</table>
