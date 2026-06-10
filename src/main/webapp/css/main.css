@@ -1,0 +1,855 @@
+/* =========================
+   menu画面
+========================= */
+.menu {
+    flex: 1;
+    padding: 30px;
+}
+
+/* 中央寄せ用 */
+.menu > div {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* タイトル */
+.menu h2 {
+    font-size: 22px;
+    margin-bottom: 25px;
+    color: #2c3e50;
+}
+
+/* ナビ全体 */
+.menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* 各ブロック */
+.menu nav > div {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* グループのタイトル（成績管理） */
+.menu label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* リンク */
+.menu a {
+    display: block;
+    padding: 10px;
+    margin-bottom: 8px;
+
+    text-decoration: none;
+    color: #2c3e50;
+    font-size: 14px;
+
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+/* ホバー */
+.menu a:hover {
+    background-color: #f0f4f8;
+    color: #3498db;
+}
+
+/* 単独リンク（学生管理とか） */
+.menu nav > div > a {
+    font-weight: 500;
+}
+
+
+
+
+
+/* =========================
+   学生管理一覧ページ
+========================= */
+.student-main {
+    flex: 1;
+    padding: 30px;
+}
+
+/* =========================
+   内側コンテンツ
+========================= */
+.student-main .content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* =========================
+   タイトル
+========================= */
+.student-main h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* =========================
+   新規登録ボタン
+========================= */
+.student-main .create-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 16px;
+
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.student-main .create-btn:hover {
+    background-color: #2d82c3;
+}
+
+/* =========================
+   フィルター（検索フォーム）
+========================= */
+.student-main form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* ラベル */
+.student-main form label {
+    font-size: 13px;
+    color: #555;
+}
+
+/* セレクト */
+.student-main form select {
+    padding: 6px 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* チェック */
+.student-main form input[type="checkbox"] {
+    margin-left: 5px;
+}
+
+/* 絞込みボタン */
+.student-main form button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+
+    background-color: #2ecc71;
+    color: #fff;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.student-main form button:hover {
+    background-color: #27ae60;
+}
+
+/* =========================
+   エラー
+========================= */
+.student-main .error {
+    color: #e74c3c;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+/* =========================
+   件数表示
+========================= */
+.student-main .result-count {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* =========================
+   テーブル
+========================= */
+.student-main table {
+    width: 100%;
+    border-collapse: collapse;
+
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ヘッダー */
+.student-main th {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 10px;
+    font-size: 13px;
+}
+
+/* データ */
+.student-main td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+/* ストライプ */
+.student-main tr:nth-child(even) {
+    background-color: #f9fbfc;
+}
+
+/* ホバー */
+.student-main tr:hover {
+    background-color: #eef5ff;
+}
+
+/* =========================
+   在学状態
+========================= */
+.student-main .ok {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.student-main .ng {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* =========================
+   変更リンク
+========================= */
+.student-main table a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.student-main table a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   フォーム画面
+========================= */
+.form-main {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+/* コンテナ */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+
+    background: #fff;
+    padding: 30px;
+
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* タイトル */
+.form-container h2 {
+    font-size: 20px;
+    margin-bottom: 25px;
+    color: #2c3e50;
+}
+
+/* フォーム */
+.form-group {
+    margin-bottom: 18px;
+}
+
+/* ラベル */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #555;
+}
+
+/* 入力 */
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    font-size: 14px;
+}
+
+/* フォーカス */
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52,152,219,0.15);
+}
+
+/* エラー */
+.error {
+    margin-top: 5px;
+    color: #e74c3c;
+    font-size: 12px;
+}
+
+/* ボタン */
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+
+    background-color: #3498db;
+    color: #fff;
+
+    border: none;
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #2d82c3;
+}
+
+/* 戻るリンク */
+.back-link {
+    display: inline-block;
+    margin-top: 15px;
+
+    color: #555;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* 読み取り専用 */
+.readonly {
+    background-color: #f4f6f9;
+    color: #777;
+}
+
+
+
+/* ボタン少し強調（変更なので） */
+.submit-btn {
+    background-color: #e67e22;
+}
+
+.submit-btn:hover {
+    background-color: #d35400;
+}
+
+/* =========================
+   チェックボックス
+========================= */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+/* labelを横並び */
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+
+    white-space: nowrap; /* ← 改行防止（超重要） */
+}
+
+/* チェックボックス本体 */
+.checkbox-group input[type="checkbox"] {
+    width: auto;         /* ← 共通CSS対策 */
+    margin: 0;           /* ← 余計なズレ防止 */
+    transform: scale(1.2);
+
+    cursor: pointer;
+}
+
+/* =========================
+   成績管理画面
+========================= */
+.test-main {
+    flex: 1;
+    padding: 30px;
+}
+
+/* 中央寄せ */
+.test-main .content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* タイトル */
+.test-main h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* =========================
+   検索フォーム
+========================= */
+.test-main form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+/* ラベル */
+.test-main form label {
+    font-size: 13px;
+    color: #555;
+}
+
+/* select */
+.test-main select {
+    padding: 6px 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* 検索ボタン */
+.test-main form button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+
+    background-color: #3498db;
+    color: #fff;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.test-main form button:hover {
+    background-color: #2d82c3;
+}
+
+/* =========================
+   エラー
+========================= */
+.test-main p {
+    color: #e74c3c;
+    margin-bottom: 10px;
+}
+
+/* =========================
+   科目表示
+========================= */
+.test-main .subject-info {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* =========================
+   テーブル
+========================= */
+.test-main table {
+    width: 100%;
+    border-collapse: collapse;
+
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ヘッダー */
+.test-main th {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 10px;
+    font-size: 13px;
+}
+
+/* データ */
+.test-main td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* 偶数行 */
+.test-main tr:nth-child(even) {
+    background-color: #f9fbfc;
+}
+
+/* ホバー */
+.test-main tr:hover {
+    background-color: #eef5ff;
+}
+
+/* 点数入力欄 */
+.test-main td input {
+    width: 60px;
+    padding: 5px;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* =========================
+   登録ボタン
+========================= */
+.test-main .submit-area {
+    margin-top: 15px;
+    text-align: right;
+}
+
+.test-main .submit-area button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+
+    background-color: #2ecc71;
+    color: #fff;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.test-main .submit-area button:hover {
+    background-color: #27ae60;
+}
+
+/* =========================
+   成績参照画面
+========================= */
+.testlist-main {
+    flex: 1;
+    padding: 30px;
+}
+
+/* 中央 */
+.testlist-main .content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* タイトル */
+.testlist-main h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* =========================
+   フォーム
+========================= */
+.search-form {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+/* フォームタイトル */
+.form-title {
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* 入力エリア */
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+/* ラベルっぽい文字 */
+.search-form label {
+    font-size: 13px;
+    color: #555;
+}
+
+/* セレクト・入力 */
+.search-form select,
+.search-form input {
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* ボタン */
+.search-form button {
+    padding: 7px 14px;
+    border: none;
+    border-radius: 5px;
+
+    background-color: #3498db;
+    color: #fff;
+
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #2d82c3;
+}
+
+/* =========================
+   セクションタイトル
+========================= */
+.section-title {
+    margin: 20px 0 10px;
+    font-size: 16px;
+    color: #2c3e50;
+}
+
+/* =========================
+   テーブル
+========================= */
+.testlist-main table {
+    width: 100%;
+    border-collapse: collapse;
+
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ヘッダー */
+.testlist-main th {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 10px;
+    font-size: 13px;
+}
+
+/* データ */
+.testlist-main td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* ストライプ */
+.testlist-main tr:nth-child(even) {
+    background-color: #f9fbfc;
+}
+
+/* ホバー */
+.testlist-main tr:hover {
+    background-color: #eef5ff;
+}
+
+/* =========================
+   科目管理画面
+========================= */
+.subject-main {
+    flex: 1;
+    padding: 30px;
+}
+
+/* 中央寄せ */
+.subject-main .content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* タイトル */
+.subject-main h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* =========================
+   新規登録ボタン
+========================= */
+.subject-main .create-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 16px;
+
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.subject-main .create-btn:hover {
+    background-color: #2d82c3;
+}
+
+/* =========================
+   テーブル
+========================= */
+.subject-main table {
+    width: 100%;
+    border-collapse: collapse;
+
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ヘッダー */
+.subject-main th {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 10px;
+    font-size: 13px;
+}
+
+/* データ */
+.subject-main td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* ストライプ */
+.subject-main tr:nth-child(even) {
+    background-color: #f9fbfc;
+}
+
+/* ホバー */
+.subject-main tr:hover {
+    background-color: #eef5ff;
+}
+
+/* =========================
+   操作用リンク
+========================= */
+.subject-main a {
+    text-decoration: none;
+    font-size: 13px;
+    color: #3498db;
+}
+
+/* 更新 */
+.subject-main a:hover {
+    text-decoration: underline;
+}
+
+/* 削除（危険っぽくする） */
+.subject-main .delete {
+    color: #e74c3c;
+}
+
+.subject-main .delete:hover {
+    text-decoration: underline;
+}
+/* フォーム共通（使い回せる） */
+.form-main {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+
+    background: #fff;
+    padding: 30px;
+
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* グループ */
+.form-group {
+    margin-bottom: 18px;
+}
+
+/* ラベル */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #555;
+}
+
+/* 入力 */
+.form-group input {
+    width: 100%;
+    padding: 10px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* ボタン */
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+
+    background-color: #3498db;
+    color: #fff;
+
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #2d82c3;
+}
+
+/* 戻る */
+.back-link {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 13px;
+    color: #555;
+}

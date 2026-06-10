@@ -4,10 +4,11 @@
 
 <div class="container">
 <jsp:include page="/side.jsp" />
-	<main>
+	<main class="student-main">
+	<div class ="content">
 		<h2>学生管理</h2>
-		<a href="<%= request.getContextPath() %>/StudentCreate.action">新規登録</a>
-		<form>
+		<a class="create-btn" href="<%= request.getContextPath() %>/StudentCreate.action">新規登録</a>
+		<form class="filter-form">
 			<label for="year">入学年度</label>
 				<select id="year" name="f1">
 					<option value="0">--------</option>
@@ -27,13 +28,13 @@
 		</form>
 		
 		<c:if test="${not empty errors }">
-			<p>${errors.f1 }</p>
+			<p class="error">${errors.f1 }</p>
 		</c:if>
 		
 		<c:choose>
 			<%--<c:when test="${students.size() > 0 }"> DBからデータを取得して（DAO）studentsというリストをｊａｖａで作る --%>
 			<c:when test="${not empty students}">
-				<div>検索結果: ${students.size() }件</div>
+				<div class="result-count">検索結果: ${students.size() }件</div>
 				<table>
 					<tr>
 						<th>入学年度</th>
@@ -49,7 +50,7 @@
 							<td>${student.no }</td>
 							<td>${student.name }</td>
 							<td>${student.classNum }</td>
-							<td>
+							<td class="${student.attend ? 'ok' : 'ng'}">
 								<c:choose>
 									<c:when test="${student.attend }">
 										〇
@@ -68,6 +69,8 @@
 				<div>学生情報が存在しませんでした。</div>
 			</c:otherwise>
 		</c:choose>
+		
+		</div>
 	</main>
 </div>
 

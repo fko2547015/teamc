@@ -1,0 +1,122 @@
+/* =========================
+   背景
+========================= */
+body {
+    background-color: #f4f6f9;
+}
+
+/* =========================
+   ログインカード
+========================= */
+.login {
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 32px;
+
+    background: #ffffff;
+    border-radius: 10px;
+
+    /* 控えめだけど綺麗な影 */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   タイトル
+========================= */
+.login h2 {
+    text-align: center;
+    margin-bottom: 28px;
+
+    font-size: 20px;
+    font-weight: 600;
+
+    color: #2c3e50;
+}
+
+/* =========================
+   エラー
+========================= */
+.login p {
+    margin-bottom: 16px;
+    padding: 8px;
+
+    font-size: 13px;
+    color: #e74c3c;
+    text-align: center;
+
+    background: #fff2f2;
+    border-radius: 6px;
+}
+
+/* =========================
+   入力欄
+========================= */
+.login input[type="text"],
+.login input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+
+    border: 1px solid #ddd;
+    border-radius: 6px;
+
+    font-size: 14px;
+    background: #fff;
+
+    transition: all 0.2s;
+}
+
+/* フォーカス */
+.login input:focus {
+    outline: none;
+
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.15);
+}
+
+/* =========================
+   チェックボックス
+========================= */
+.login label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    font-size: 13px;
+    color: #555;
+}
+
+.login input[type="checkbox"] {
+    margin-right: 6px;
+}
+
+/* =========================
+   ボタン
+========================= */
+.login input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+
+    border: none;
+    border-radius: 6px;
+
+    background-color: rgb(0, 64, 128);
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* ホバー */
+.login input[type="submit"]:hover {
+    background-color: #2d82c3;
+}
+
+/* クリック */
+.login input[type="submit"]:active {
+    transform: scale(0.98);
+}

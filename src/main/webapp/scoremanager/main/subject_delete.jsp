@@ -4,11 +4,13 @@
 
 <div class="container">
 <jsp:include page="/side.jsp" />
-	<main>
+	<main class="delete-main">
+	<div class="delete-box">
 		<h2>科目情報削除</h2>
 		
 		<p>「${subject.name}(${subject.cd})」を削除してもよろしいですか</p>
 		
+		<div class="delete-actions">
 		<form action="SubjectDeleteExecute.action" method="post">
 		    <input type="hidden" name="cd" value="${subject.cd}">
 		    <input type="hidden" name="name" value="${subject.name}">
@@ -18,6 +20,8 @@
 		
 		
 		<a href="<%= request.getContextPath() %>/SubjectList.action">戻る</a>
+		</div>
+		</div>
 	</main>
 </div>
 

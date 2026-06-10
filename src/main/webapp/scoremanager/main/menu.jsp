@@ -4,7 +4,7 @@
 
 <div class="container">
 <jsp:include page="../../side.jsp" />
-	<main>
+	<main class="menu">
 		<div>
 			<h2>メニュー</h2>
 			<nav>

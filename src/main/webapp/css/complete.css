@@ -1,0 +1,438 @@
+/* =========================
+   完了画面
+========================= */
+.complete-main {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+/* 中央カード */
+.complete-box {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 30px;
+
+    background: #fff;
+    border-radius: 10px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+}
+
+/* タイトル */
+.complete-box h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* 完了メッセージ */
+.complete-box p {
+    font-size: 16px;
+    color: #2ecc71; /* 成功色 */
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* ボタンエリア */
+.complete-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* ボタン共通 */
+.complete-actions a {
+    display: inline-block;
+    padding: 10px 18px;
+
+    text-decoration: none;
+    border-radius: 6px;
+
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+/* 戻る（グレー） */
+.complete-actions .back {
+    background: #bdc3c7;
+    color: #fff;
+}
+
+.complete-actions .back:hover {
+    background: #a7afb3;
+}
+
+/* 一覧（メイン） */
+.complete-actions .list {
+    background: #3498db;
+    color: #fff;
+}
+
+.complete-actions .list:hover {
+    background: #2d82c3;
+}
+
+
+
+
+
+
+/* =========================
+   更新完了画面
+========================= */
+.update-complete-main {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+/* 中央カード */
+.update-complete-box {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 30px;
+
+    background: #fff;
+    border-radius: 10px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+}
+
+/* タイトル */
+.update-complete-box h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* メッセージ */
+.update-complete-box p {
+    font-size: 16px;
+    margin-bottom: 25px;
+
+    color: #e67e22; /* 更新＝オレンジ */
+    font-weight: 600;
+}
+
+/* ボタンエリア */
+.update-actions {
+    display: flex;
+    justify-content: center;
+}
+
+/* 一覧ボタン */
+.update-actions a {
+    display: inline-block;
+    padding: 10px 20px;
+
+    background-color: #3498db;
+    color: #fff;
+
+    border-radius: 6px;
+    text-decoration: none;
+
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.update-actions a:hover {
+    background-color: #2d82c3;
+}
+
+/* =========================
+   成績登録 完了画面
+========================= */
+.test-complete-main {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+/* 中央カード */
+.test-complete-box {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 30px;
+
+    background: #fff;
+    border-radius: 10px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+}
+
+/* タイトル */
+.test-complete-box h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* メッセージ */
+.test-complete-box p {
+    font-size: 16px;
+    margin-bottom: 25px;
+
+    color: #2ecc71; /* 成功＝緑 */
+    font-weight: 600;
+}
+
+/* ボタンエリア */
+.test-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* ボタン共通 */
+.test-actions a {
+    display: inline-block;
+    padding: 10px 18px;
+
+    text-decoration: none;
+    border-radius: 6px;
+
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+/* 戻る */
+.test-actions .back {
+    background: #bdc3c7;
+    color: #fff;
+}
+
+.test-actions .back:hover {
+    background: #a7afb3;
+}
+
+/* 一覧 */
+.test-actions .list {
+    background: #3498db;
+    color: #fff;
+}
+
+.test-actions .list:hover {
+    background: #2d82c3;
+}
+/* =========================
+   科目登録 完了画面
+========================= */
+.subject-complete-main {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+/* 中央カード */
+.subject-complete-box {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 30px;
+
+    background: #fff;
+    border-radius: 10px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+}
+
+/* タイトル */
+.subject-complete-box h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* メッセージ */
+.subject-complete-box p {
+    font-size: 16px;
+    margin-bottom: 25px;
+
+    color: #2ecc71; /* 成功＝緑 */
+    font-weight: 600;
+}
+
+/* ボタンエリア */
+.subject-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* ボタン共通 */
+.subject-actions a {
+    display: inline-block;
+    padding: 10px 18px;
+
+    text-decoration: none;
+    border-radius: 6px;
+
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+/* 戻る */
+.subject-actions .back {
+    background: #bdc3c7;
+    color: #fff;
+}
+
+.subject-actions .back:hover {
+    background: #a7afb3;
+}
+
+/* 一覧 */
+.subject-actions .list {
+    background: #3498db;
+    color: #fff;
+}
+
+.subject-actions .list:hover {
+    background: #2d82c3;
+}
+
+/* =========================
+   削除確認画面
+========================= */
+.delete-main {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+/* 中央ボックス */
+.delete-box {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 30px;
+
+    background: #fff;
+    border-radius: 10px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+}
+
+/* タイトル */
+.delete-box h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* 確認メッセージ */
+.delete-box p {
+    font-size: 15px;
+    margin-bottom: 25px;
+
+    color: #e74c3c; /* 危険色 */
+    font-weight: 600;
+}
+
+/* 強調（科目名部分） */
+.delete-box .highlight {
+    font-weight: bold;
+}
+
+/* ボタンエリア */
+.delete-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* 削除ボタン */
+.delete-actions button {
+    padding: 10px 18px;
+
+    background-color: #e74c3c;
+    color: #fff;
+
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.delete-actions button:hover {
+    background-color: #c0392b;
+}
+
+/* 戻るボタン */
+.delete-actions a {
+    padding: 10px 18px;
+
+    background-color: #bdc3c7;
+    color: #fff;
+
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+.delete-actions a:hover {
+    background-color: #a7afb3;
+}
+
+/* =========================
+   科目削除 完了画面
+========================= */
+.subject-delete-complete-main {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+.subject-delete-complete-box {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 30px;
+
+    background: #fff;
+    border-radius: 10px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+}
+
+/* タイトル */
+.subject-delete-complete-box h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* メッセージ */
+.subject-delete-complete-box p {
+    font-size: 16px;
+    margin-bottom: 25px;
+
+    color: #e74c3c; /* 削除＝赤 */
+    font-weight: 600;
+}
+
+/* ボタン */
+.subject-delete-complete-box a {
+    display: inline-block;
+    padding: 10px 18px;
+
+    background-color: #3498db;
+    color: #fff;
+
+    border-radius: 6px;
+    text-decoration: none;
+
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.subject-delete-complete-box a:hover {
+    background-color: #2d82c3;
+}

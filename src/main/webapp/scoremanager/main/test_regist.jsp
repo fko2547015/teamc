@@ -4,7 +4,8 @@
 
 <div class="container">
 <jsp:include page="/side.jsp" />
-	<main>
+	<main class="test-main">
+	<div class="content">
 		<h2>成績管理</h2>
 		<form mode="post">
 			<input type="hidden" name="mode" value="search">
@@ -46,7 +47,8 @@
 		<c:choose>
 			<c:when test="${not empty tests}">
 		<%-- DBからデータを取得して（DAO）testsというリストをｊａｖａで作る --%>
-			<div>科目: ${subject.name } (${no }回)</div>
+		
+			<div class="subject-info">科目: ${subject.name } (${no }回)</div>
 			<form action="<%= request.getContextPath() %>/TestRegistExecute.action" method="post">
 			<table>
 				<tr>
@@ -67,7 +69,9 @@
 					</tr>
 				</c:forEach>
 			</table>
+			<div class="submit-area">
 			<button name="fin">登録して終了</button>
+			</div>
 			</form>
 			</c:when>
 		</c:choose>
@@ -75,7 +79,7 @@
 		<input type="hidden" name="regist" value="${test.student.no }">
 		<input type="hidden" name="count" value="${f4 }">
 		<input type="hidden" name="subject" value="${f3 }">
-		
+	</div>
 </main>
 </div>
 

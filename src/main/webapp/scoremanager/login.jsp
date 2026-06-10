@@ -4,20 +4,23 @@
 <jsp:include page="../header.jsp" />
 <!--<jsp:include page="../side.jsp" />-->
 
-<div class="container">
-	<main>
+
+	<main class="login">
 	<h2>ログイン</h2>
 	<c:if test="${not empty error}">
 	    <p>${error}</p>
 	</c:if>
 	
 	<form action="<%= request.getContextPath() %>/LoginExecute.action" method="post">
+	
 	<input type="text" name="id" placeholder="ID" required><br>
-	<label>
-	  <input type="password" id="password" name="password" placeholder="パスワード" required><br>
-	  <input type="checkbox" id="chk_d_ps">
-	  パスワードを表示<br>
-	</label>
+	<input type="password" id="password" name="password" placeholder="パスワード" required><br>
+	<div class="checkbox-area">
+		<label>  
+		  <input type="checkbox" id="chk_d_ps">
+		  パスワードを表示
+		</label>
+	</div>
 	
 	<script>
 	  const pwd = document.getElementById("password");
@@ -33,5 +36,5 @@
 	</form>
 	</main>
 
-</div>
+
 <jsp:include page="../footer.html" />

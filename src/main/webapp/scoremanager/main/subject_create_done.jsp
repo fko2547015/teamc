@@ -4,13 +4,16 @@
 
 <div class="container">
 <jsp:include page="/side.jsp" />
-	<main>
+	<main class="subject-complete-main">
+	<div class="subject-complete-box">
 		<h2>科目情報登録</h2>
 		
 		<p>登録が完了しました</p>
-		
-		<a href="<%= request.getContextPath() %>/SubjectCreate.action">戻る</a>
-		<a href="<%= request.getContextPath() %>/SubjectList.action">科目一覧</a>
+		<div class="subject-actions">
+		<a class="back" href="<%= request.getContextPath() %>/SubjectCreate.action">戻る</a>
+		<a class="list" href="<%= request.getContextPath() %>/SubjectList.action">科目一覧</a>
+		</div>
+	</div>
 	</main>
 </div>
 

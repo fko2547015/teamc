@@ -7,8 +7,9 @@
 	<meta charset="UTF-8">
 	<title>得点管理システム</title>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main.css">
-	
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/complete.css">
 </head>
 <body>
 <div id="header_area">

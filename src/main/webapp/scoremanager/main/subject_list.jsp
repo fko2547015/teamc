@@ -4,9 +4,10 @@
 
 <div class="container">
 <jsp:include page="/side.jsp" />
-	<main>
+	<main class="subject-main">
+	<div class="content">
 		<h2>科目管理</h2>
-		<a href="<%= request.getContextPath() %>/SubjectCreate.action">新規登録</a>
+		<a class="create-btn" href="<%= request.getContextPath() %>/SubjectCreate.action">新規登録</a>
 		
 		<table>
 			<tr>
@@ -23,12 +24,13 @@
 					    <a href="<%= request.getContextPath() %>/SubjectUpdate.action?cd=${subject.cd}">変更</a>
 					</td>
 					<td>
-					    <a href="<%= request.getContextPath() %>/SubjectDelete.action?cd=${subject.cd}">削除</a>
+					    <a class="delete" href="<%= request.getContextPath() %>/SubjectDelete.action?cd=${subject.cd}">削除</a>
 					</td>
 					
 				</tr>
 			</c:forEach>
 		</table>
+	</div>	
 	</main>
 </div>
 

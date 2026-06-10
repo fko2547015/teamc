@@ -7,12 +7,13 @@
 
 <div class="container">
 <jsp:include page="/side.jsp" />
-	<main>
+	<main class="testlist-main">
+	<div class="content">
 		<h2>成績参照</h2>
 		
 		<!-- 科目検索フォーム -->
-		<form>
-		    <p>科目情報</p>
+		<form class="search-form">
+		    <p class="form-title">科目情報</p>
 		
 		    入学年度:
 		    <select name="f1">
@@ -48,8 +49,8 @@
 		</form>
 		
 		<!-- 学生検索フォーム -->
-		<form>
-		    <p>学生情報</p>
+		<form class="search-form">
+		    <p class="form-title">学生情報</p>
 		    学生番号:
 		    <input type="text" name="f4" value="${f4}">
 		    <button>検索</button>
@@ -59,7 +60,7 @@
 		
 		<!-- ✅ 科目検索結果 -->
 		<c:if test="${not empty subjectTests}">
-		    <h3>科目別成績一覧</h3>
+		    <h3 class="section-title">科目別成績一覧</h3>
 		
 		    <table border="1">
 		        <tr>
@@ -96,7 +97,7 @@
 		
 		<!-- ✅ 学生検索結果 -->
 		<c:if test="${not empty studentTests}">
-		    <h3>学生の成績一覧</h3>
+		    <h3 class="section-title">学生の成績一覧</h3>
 		
 		    <table border="1">
 		        <tr>
@@ -116,7 +117,7 @@
 		        </c:forEach>
 		    </table>
 		</c:if>
-		
+		</div>
 	</main>
 </div>
 
