@@ -65,6 +65,7 @@ body {
    サイドバー（class化）
 ========================= */
 .sidebar {
+	min-height: 84vh;
     width: 220px;
     background-color: #34495e;
     color: white;
