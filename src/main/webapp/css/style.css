@@ -17,8 +17,11 @@ body {
     min-height: 100vh;
 }
 
+.containers {
+	display: flex;
+}
+
 .container {
-    display: flex;
     flex: 1;
 }
 .checkbox-area {
