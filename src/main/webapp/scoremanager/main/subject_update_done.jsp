@@ -4,12 +4,15 @@
 
 <div class="container">
 <jsp:include page="/side.jsp" />
-	<main>
+	<main class="update-complete-main">
+	<div class="update-complete-box">
 		<h2>科目情報変更</h2>
 		
 		<p>変更が完了しました</p>
-		
+		<div class="update-actions">
 		<a href="<%= request.getContextPath() %>/SubjectList.action">科目一覧</a>
+		</div>
+	</div>
 	</main>
 </div>
 
