@@ -12,7 +12,8 @@
 		<h2>成績参照</h2>
 		
 		<!-- 科目検索フォーム -->
-		<form class="search-form">
+		<form class="search-form" method="get">
+		<input type="hidden" name="mode" value="search">
 		    <p class="form-title">科目情報</p>
 		
 		    入学年度:
@@ -46,18 +47,24 @@
 		    </select>
 		
 		    <button>検索</button>
+		    <br>
+		    <c:if test="${not empty error_name}">
+                <p class="error">${error_name}</p>
+            </c:if>
 		</form>
-		
 		<!-- 学生検索フォーム -->
-		<form class="search-form">
+		<form class="search-form"  method="get">
+		<input type="hidden" name="mode" value="search">
 		    <p class="form-title">学生情報</p>
 		    学生番号:
-		    <input type="text" name="f4" value="${f4}">
+		    <input type="text" name="f4" value="${f4}" required>
 		    <button>検索</button>
 		</form>
 		
 		<hr>
-		
+		<c:if test="${not empty error_no}">
+            <p class="error">${error_no}</p>
+        </c:if>
 		<!-- 科目検索結果 -->
 		<c:if test="${not empty subjectTests}">
 		    <h3 class="section-title">科目別成績一覧</h3>

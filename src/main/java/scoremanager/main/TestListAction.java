@@ -39,6 +39,7 @@ public class TestListAction extends Action {
         String classNum   = request.getParameter("f2");
         String classSub   = request.getParameter("f3");
         String studentNo  = request.getParameter("f4");
+        String mode = request.getParameter("mode");
 
         // DAO
         ClassNumDao cNumDao = new ClassNumDao();
@@ -73,18 +74,29 @@ public class TestListAction extends Action {
         List<TestListSubject> subjectTests = null;
 
         // 分岐
-
-        if (studentNo != null && !studentNo.isEmpty()) {
-            // 学生検索
-            Student student = stuDao.get(studentNo);
-
-            if (student != null) {
-                studentTests = tlsDao.filter(student);
-            }
-
-        } else if (subject != null && entYear > 0 && classNum != null && !classNum.isEmpty()) {
-            // 科目検索（新DAO）
-            subjectTests = tSubDao.filter(entYear, classNum, subject, teacher.getSchool());
+        if ("search".equals(mode)) {
+	        if (studentNo != null && !studentNo.isEmpty()) {
+	            // 学生検索
+	            Student student = stuDao.get(studentNo);
+	
+	            if (student != null) {
+	                studentTests = tlsDao.filter(student);
+	                if (studentTests == null || studentTests.isEmpty()) {
+	                	request.setAttribute("error_no", "成績情報が存在しませんでした");
+	                }
+	            } else {
+	                request.setAttribute("error_no", "学生情報が存在しませんでした");
+	            }
+	
+	        } else if (subject != null && entYear > 0 && classNum != null && !classNum.isEmpty()) {
+	            // 科目検索（新DAO）
+	            subjectTests = tSubDao.filter(entYear, classNum, subject, teacher.getSchool());
+	            if (subjectTests == null || subjectTests.isEmpty()) {
+                	request.setAttribute("error_no", "学生情報が存在しませんでした");
+                }
+	        } else {
+	        	request.setAttribute("error_name", "入学年度とクラスと科目を入力してください");
+	        }
         }
 
         // 選択肢
@@ -92,7 +104,7 @@ public class TestListAction extends Action {
         List<Subject> subjects   = subDao.filter(teacher.getSchool());
 
         // 回数リスト（固定じゃないがとりあえず5回まで表示）
-        List<Integer> numList = List.of(1, 2, 3, 4, 5);
+        List<Integer> numList = List.of(1, 2);
 
         // JSPに渡す
         request.setAttribute("studentTests", studentTests);
@@ -106,10 +118,9 @@ public class TestListAction extends Action {
         request.setAttribute("ent_year_set", entYearSet);
         request.setAttribute("class_num_set", classNumSet);
         request.setAttribute("class_sub_set", subjects);
-        request.setAttribute("numList", numList); // ★これ重要
+        request.setAttribute("numList", numList);
 
-        // ✅ 画面へ
-        request.getRequestDispatcher("scoremanager/main/test_list.jsp")
-               .forward(request, response);
+        // 画面へ
+        request.getRequestDispatcher("scoremanager/main/test_list.jsp").forward(request, response);
     }
 }
