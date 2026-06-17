@@ -58,7 +58,7 @@
 		
 		<hr>
 		
-		<!-- ✅ 科目検索結果 -->
+		<!-- 科目検索結果 -->
 		<c:if test="${not empty subjectTests}">
 		    <h3 class="section-title">科目別成績一覧</h3>
 		
@@ -95,7 +95,7 @@
 		    </table>
 		</c:if>
 		
-		<!-- ✅ 学生検索結果 -->
+		<!-- 学生検索結果 -->
 		<c:if test="${not empty studentTests}">
 		    <h3 class="section-title">学生の成績一覧</h3>
 		

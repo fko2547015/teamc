@@ -25,6 +25,25 @@ public class SubjectCreateExecuteAction extends Action {
 		
 		Subject subject = new Subject();
 		School school = teacher.getSchool();
+		
+		
+		SubjectDao sDao = new SubjectDao();
+		
+		if (sDao.get(school.getCd(),subjectCd) != null ) {
+			request.setAttribute("cd", subjectCd);
+			request.setAttribute("name", subjectName);
+			request.setAttribute("error_cd", "科目コードが重複してます");
+			request.getRequestDispatcher("/scoremanager/main/subject_create.jsp").forward(request, response);
+			return;
+		}
+		if (subjectCd.length() != 3) {
+			request.setAttribute("cd", subjectCd);
+			request.setAttribute("name", subjectName);
+			request.setAttribute("error_cd", "科目コードは3文字で入力してください");
+			request.getRequestDispatcher("/scoremanager/main/subject_create.jsp").forward(request, response);
+			return;
+		}
+		
 		subject.setCd(subjectCd);
 		subject.setName(subjectName);
 		

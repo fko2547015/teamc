@@ -25,7 +25,7 @@ public class TestListAction extends Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        // ✅ セッションチェック
+        // セッションチェック
         HttpSession session = request.getSession();
         Teacher teacher = (Teacher) session.getAttribute("teacher");
 
@@ -34,32 +34,32 @@ public class TestListAction extends Action {
             return;
         }
 
-        // ✅ パラメータ取得
+        // パラメータ取得
         String entYearStr = request.getParameter("f1");
         String classNum   = request.getParameter("f2");
         String classSub   = request.getParameter("f3");
         String studentNo  = request.getParameter("f4");
 
-        // ✅ DAO
+        // DAO
         ClassNumDao cNumDao = new ClassNumDao();
         SubjectDao subDao   = new SubjectDao();
         StudentDao stuDao   = new StudentDao();
         TestListStudentDao tlsDao = new TestListStudentDao();
-        TestListSubjectDao tSubDao = new TestListSubjectDao(); // ★ここ重要
+        TestListSubjectDao tSubDao = new TestListSubjectDao();
 
-        // ✅ 入学年度
+        // 入学年度
         int entYear = 0;
         if (entYearStr != null && !entYearStr.isEmpty()) {
             entYear = Integer.parseInt(entYearStr);
         }
 
-        // ✅ 科目
+        // 科目
         Subject subject = null;
         if (classSub != null && !classSub.isEmpty()) {
             subject = subDao.get(teacher.getSchool().getCd(), classSub);
         }
 
-        // ✅ 入学年度リスト（プルダウン用）
+        // 入学年度リスト（プルダウン用）
         LocalDate today = LocalDate.now();
         int year = today.getYear();
 
@@ -68,14 +68,14 @@ public class TestListAction extends Action {
             entYearSet.add(i);
         }
 
-        // ✅ 結果
+        // 結果
         List<TestListStudent> studentTests = null;
         List<TestListSubject> subjectTests = null;
 
-        // 🔥 🔥 分岐（超重要） 🔥 🔥
+        // 分岐
 
         if (studentNo != null && !studentNo.isEmpty()) {
-            // ✅ 学生検索
+            // 学生検索
             Student student = stuDao.get(studentNo);
 
             if (student != null) {
@@ -83,18 +83,18 @@ public class TestListAction extends Action {
             }
 
         } else if (subject != null && entYear > 0 && classNum != null && !classNum.isEmpty()) {
-            // ✅ 科目検索（新DAO）
+            // 科目検索（新DAO）
             subjectTests = tSubDao.filter(entYear, classNum, subject, teacher.getSchool());
         }
 
-        // ✅ 選択肢
+        // 選択肢
         List<String> classNumSet = cNumDao.filter(teacher.getSchool());
         List<Subject> subjects   = subDao.filter(teacher.getSchool());
 
-        // ✅ 回数リスト（固定じゃないがとりあえず5回まで表示）
+        // 回数リスト（固定じゃないがとりあえず5回まで表示）
         List<Integer> numList = List.of(1, 2, 3, 4, 5);
 
-        // ✅ JSPに渡す
+        // JSPに渡す
         request.setAttribute("studentTests", studentTests);
         request.setAttribute("subjectTests", subjectTests);
 

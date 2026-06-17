@@ -65,12 +65,12 @@
 
 <hr>
 
-<!-- ✅ 検索結果 -->
+
 <c:if test="${not empty tests}">
 
     <div>科目: ${subject.name}（${no}回）</div>
 
-    <!-- ✅ 登録フォーム -->
+
     <form action="${pageContext.request.contextPath}/TestRegistExecute.action" method="post">
 
         <table border="1">
@@ -89,12 +89,10 @@
                     <td>${test.student.no}</td>
                     <td>${test.student.name}</td>
                     <td>
-                        <!-- ✅ 入力欄（値保持） -->
                         <input type="number"
                                name="point_${test.student.no}"
                                value="${test.point}">
 
-                        <!-- ✅ 個別エラー -->
                         <c:if test="${not empty errors[test.student.no]}">
                             <div style="color:red; font-size: 0.9em;">
                                 ${errors[test.student.no]}

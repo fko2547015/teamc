@@ -16,8 +16,12 @@
 		               name="cd"
 		               placeholder="科目コードを入力してください"
 		               maxlength="3"
+		               value = "${cd}"
 		               required>
 		    </label>
+		    <c:if test="${not empty error_cd}">
+                <p class="error">${error_cd}</p>
+            </c:if>
 		    <br>
 		 	</div>
 		 	<div class="form-group">
@@ -26,6 +30,7 @@
 		               name="name"
 		               placeholder="科目名を入力してください"
 		               maxlength="20"
+		               value = "${name}"
 		               required>
 		    </div>
 		    

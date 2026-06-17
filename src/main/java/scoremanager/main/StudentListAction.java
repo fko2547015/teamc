@@ -60,7 +60,7 @@ public class StudentListAction extends Action {
 		if (entYear != 0 && !classNum.equals("0")) {
 			students = sDao.filter(teacher.getSchool(), entYear, classNum, isAttend);
 		} else if (entYear != 0 && classNum.equals("0")) {
-			students = sDao.filter(teacher.getSchool(), entYear, classNum, isAttend);
+			students = sDao.filter(teacher.getSchool(), entYear, isAttend);
 		} else if (entYear == 0 && classNum == null || entYear == 0 && classNum.equals("0")) {
 			students = sDao.filter(teacher.getSchool(), isAttend);
 		} else {

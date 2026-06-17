@@ -16,7 +16,7 @@
 			</div>
 			<div class="form-group">
 			<label for="subject_name">科目名</label>
-				<input type="text" id="name" name="name" value="${subject.name }">
+				<input type="text" id="name" name="name" value="${subject.name }" required>
 			<br>
 			</div>
 			<div class="form-actions">
