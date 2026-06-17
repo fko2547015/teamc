@@ -14,43 +14,63 @@ import dao.TestDao;
 import tool.Action;
 
 public class TestRegistExecuteAction extends Action {
-	@SuppressWarnings("unchecked")
-	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		HttpSession session = request.getSession();
-		Teacher teacher = (Teacher)session.getAttribute("teacher");
-		if (teacher == null) {
-			response.sendRedirect("Login.action");
-			return;
-		}
+    @SuppressWarnings("unchecked")
+    @Override
+    public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		String pointStr = "0";
-		int point;
-		TestDao tDao = new TestDao();
-		List<Test> tests = null;
-		Map<String,String> errors = new HashMap<>();
-		
-		tests = (List<Test>)session.getAttribute("tests");
-		if (tests == null || tests.isEmpty()) {
-	        response.sendRedirect("TestRegist.action");
-	        return;
-	    }
-		for (Test test : tests) {
-			pointStr = request.getParameter("point_" + test.getStudent().getNo());
-			if (pointStr != null && !pointStr.equals("")) {
-				point = Integer.parseInt(pointStr);
-				if (point >= 0 && point <= 100) {
-					test.setPoint(point);
-				} else {
-					errors.put("f2","0~100の範囲で入力してください");
-					request.setAttribute("errors",errors);
-				}
-			}
-		}
-		
-		tDao.save(tests);
-		session.removeAttribute("tests");
-		
-		request.getRequestDispatcher("/scoremanager/main/test_regist_done.jsp").forward(request, response);
-	}
+        HttpSession session = request.getSession();
+        Teacher teacher = (Teacher) session.getAttribute("teacher");
+
+        if (teacher == null) {
+            response.sendRedirect("Login.action");
+            return;
+        }
+        
+        TestDao tDao = new TestDao();
+        List<Test> tests = (List<Test>) session.getAttribute("tests");
+
+        if (tests == null || tests.isEmpty()) {
+            response.sendRedirect("TestRegist.action");
+            return;
+        }
+
+        Map<String, String> errors = new HashMap<>();
+
+        for (Test test : tests) {
+            String studentNo = test.getStudent().getNo();
+            String pointStr = request.getParameter("point_" + studentNo);
+
+            if (pointStr != null && !pointStr.equals("")) {
+                try {
+                    int point = Integer.parseInt(pointStr);
+
+                    if (point >= 0 && point <= 100) {
+                        test.setPoint(point);
+                    } else {
+                        // ★ ここが重要（キーを学生番号にする）
+                        errors.put(studentNo, "0～100の範囲で入力してください");
+                    }
+
+                } catch (NumberFormatException e) {
+                    errors.put(studentNo, "数値を入力してください");
+                }
+            }
+        }
+
+        // ★ エラーがある場合
+        if (!errors.isEmpty()) {
+    		request.setAttribute("tests", tests);
+            request.setAttribute("errors", errors);
+            request.getRequestDispatcher("/scoremanager/main/test_regist.jsp")
+                   .forward(request, response);
+            return;
+        }
+
+        // ★ 正常時
+        tDao.save(tests);
+        session.removeAttribute("tests");
+
+        request.getRequestDispatcher("/scoremanager/main/test_regist_done.jsp")
+               .forward(request, response);
+    }
 }
