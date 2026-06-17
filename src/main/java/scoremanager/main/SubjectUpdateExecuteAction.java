@@ -25,6 +25,15 @@ public class SubjectUpdateExecuteAction extends Action {
 		
 		Subject subject = new Subject();
 		School school = teacher.getSchool();
+		SubjectDao sDao = new SubjectDao();
+		Subject subjects = sDao.get(school.getCd(),cd);
+		
+		if (subjects == null) {
+			request.setAttribute("error_cd", "科目が存在していません");
+		    request.getRequestDispatcher("/scoremanager/main/subject_update.jsp").forward(request, response);
+		    return;
+		}
+		
 		subject.setCd(cd);
 		subject.setName(name);
 		

@@ -13,6 +13,9 @@
 			<label for="cd">科目コード</label>
 			<input type="text" id="cd" name="cd" value="${subject.cd }" readonly>
 			<br>
+			<c:if test="${not empty error_cd}">
+	            <p class="error">${error_cd}</p>
+	        </c:if>
 			</div>
 			<div class="form-group">
 			<label for="subject_name">科目名</label>
