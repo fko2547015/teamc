@@ -75,28 +75,43 @@ public class TestListAction extends Action {
 
         // 分岐
         if ("search".equals(mode)) {
-	        if (studentNo != null && !studentNo.isEmpty()) {
-	            // 学生検索
-	            Student student = stuDao.get(studentNo);
-	
-	            if (student != null) {
-	                studentTests = tlsDao.filter(student);
-	                if (studentTests == null || studentTests.isEmpty()) {
-	                	request.setAttribute("error_no", "成績情報が存在しませんでした");
-	                }
-	            } else {
-	                request.setAttribute("error_no", "学生情報が存在しませんでした");
-	            }
-	
-	        } else if (subject != null && entYear > 0 && classNum != null && !classNum.isEmpty()) {
-	            // 科目検索（新DAO）
-	            subjectTests = tSubDao.filter(entYear, classNum, subject, teacher.getSchool());
-	            if (subjectTests == null || subjectTests.isEmpty()) {
-                	request.setAttribute("error_no", "学生情報が存在しませんでした");
+            if (studentNo != null && !studentNo.isEmpty()) {
+                // 学生検索
+                Student student = stuDao.get(studentNo);
+                request.setAttribute("student", student);
+                if (student != null) {
+                    studentTests = tlsDao.filter(student);
+                    request.setAttribute("student", student);
+                    // ★ここだけ変更
+                    if (studentTests == null || studentTests.isEmpty()) {
+
+                    	// 名前表示用（追加）
+                    	request.setAttribute(
+                           "student_info",
+                           "氏名：" + student.getName() + "（" + student.getNo() + "）"
+                    	);
+
+                    	
+                    	
+                    	request.setAttribute(
+                            "error_no",
+                            "成績情報が存在しませんでした"
+                        );
+                    }
+
+                } else {
+                    request.setAttribute("error_no", "学生情報が存在しませんでした");
                 }
-	        } else {
-	        	request.setAttribute("error_name", "入学年度とクラスと科目を入力してください");
-	        }
+
+            } else if (subject != null && entYear > 0 && classNum != null && !classNum.isEmpty()) {
+                // 科目検索（新DAO）
+                subjectTests = tSubDao.filter(entYear, classNum, subject, teacher.getSchool());
+                if (subjectTests == null || subjectTests.isEmpty()) {
+                    request.setAttribute("error_no", "学生情報が存在しませんでした");
+                }
+            } else {
+                request.setAttribute("error_name", "入学年度とクラスと科目を入力してください");
+            }
         }
 
         // 選択肢

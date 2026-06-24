@@ -61,13 +61,24 @@
 		    <button>検索</button>
 		</form>
 		
+		<c:if test="${empty studentTests && empty subjectTests}">
+		    <p class="guide">
+		        科目情報を選択または学生情報を入力して検索ボタンをクリックしてください
+		    </p>
+		</c:if>
+
 		<hr>
+		
+		<c:if test="${not empty student_info}">
+		    <p>${student_info}</p>
+		</c:if>
+		
 		<c:if test="${not empty error_no}">
             <p class="error">${error_no}</p>
         </c:if>
 		<!-- 科目検索結果 -->
 		<c:if test="${not empty subjectTests}">
-		    <h3 class="section-title">科目別成績一覧</h3>
+		    <h3 class="section-title">${f2} クラスの成績一覧</h3>
 		
 		    <table border="1">
 		        <tr>
@@ -104,7 +115,7 @@
 		
 		<!-- 学生検索結果 -->
 		<c:if test="${not empty studentTests}">
-		    <h3 class="section-title">学生の成績一覧</h3>
+		    <h3 class="section-title">${student.name} の成績一覧</h3>
 		
 		    <table border="1">
 		        <tr>
